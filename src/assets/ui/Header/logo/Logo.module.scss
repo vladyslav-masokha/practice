@@ -1,0 +1,18 @@
+.headerLogo {
+	text-align: center;
+
+	.logo {
+		display: flex;
+		align-items: center;
+		color: var(--global-aqua);
+
+		font-size: 24px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	.subLogo {
+		color: var(--global-yellow-dark);
+		font-style: italic;
+	}
+}

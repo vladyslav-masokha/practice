@@ -1,0 +1,61 @@
+:root {
+	--global-light: rgb(255, 255, 255);
+	--global-dark: #222;
+	--global-bolddark: #000;
+	--global-opacity-dark: #000000A3;
+	--global-lightgreen: #70ff77;
+	--global-yellow: #faff65;
+	--global-yellow-dark: #ffd700;
+	--global-red: #f00;
+	--global-pastel: #bb8763;
+	--global-pastel-light: #e6c3a9;
+	--global-pastel-dark: #855f45;
+	--global-aqua: #96EAFF;
+	--global-blue: #262b4b;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--global-bolddark);
+}
+
+body,
+p,
+span {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+#root {
+	min-width: auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+
+	font-family: "Montserrat", serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.wrapper {
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 15px;
+}

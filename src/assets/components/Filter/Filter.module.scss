@@ -1,0 +1,123 @@
+.filter {
+	margin: 15px 0 0;
+
+	.filterBody {
+		display: flex;
+		justify-content: flex-end;
+
+		.filterBtn {
+			display: flex;
+			align-items: center;
+			background: transparent;
+			border: none;
+			cursor: pointer;
+			color: var(--global-dark);
+		}
+	}
+
+	.filterBlock {
+		position: fixed;
+		height: 100%;
+		right: 0;
+		left: 0;
+		top: 0;
+		background: var(--global-blue);
+		padding: 15px;
+		transform: translateX(200%);
+		transition: transform 1s ease;
+		z-index: 2;
+		overflow-y: scroll;
+
+		&.visible {
+			transform: translate(0);
+		}
+
+		.closeFilter {
+			background: transparent;
+			border: none;
+			color: var(--global-light);
+			cursor: pointer;
+			position: fixed;
+			top: 15px;
+			left: 15px;
+		}
+
+		.filterAge,
+		.filterWeight {
+			margin: 50px 15px 0;
+			color: var(--global-light);
+
+			h3 {
+				margin: 0;
+			}
+
+			.filterAgeInputs,
+			.filterWeightInputs {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 15px;
+
+				> div {
+					width: 100%;
+					color: var(--global-light);
+					border: 1px solid var(--global-light);
+
+					input,
+					> label {
+						color: var(--global-light);
+						font-size: 18px;
+					}
+				}
+			}
+		}
+
+		.filterGender,
+		.filterSize,
+		.filterType {
+			margin: 30px 15px 0;
+			color: var(--global-light);
+
+			h3 {
+				margin: 0 0 5px 0;
+			}
+
+			.css-1869usk-MuiFormControl-root {
+				display: block;
+			}
+		}
+
+		.btnApply {
+			width: 100%;
+			margin: 15px 0 0;
+			padding: 5px 15px;
+			color: var(--global-yellow-dark);
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.filter {
+		width: 30%;
+		margin: 30px 0;
+
+		.filterBody {
+			display: block;
+
+			.filterBtn {
+				display: none;
+			}
+
+			.filterBlock {
+				position: static;
+				transform: none;
+				overflow-y: hidden;
+				border-radius: 20px;
+
+				.closeFilter {
+					display: none;
+				}
+			}
+		}
+	}
+}

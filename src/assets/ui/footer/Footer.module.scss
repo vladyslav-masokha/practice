@@ -1,0 +1,29 @@
+.footer {
+	margin-top: auto;
+	background-color: var(--global-dark);
+
+	.wrapper {
+		padding: 0 15px;
+
+		.footerBody {
+			padding: 15px 0;
+
+			p {
+				color: var(--global-light);
+
+				a {
+					color: var(--global-aqua);
+					font-weight: 700;
+				}
+
+				.link {
+					color: var(--global-yellow);
+				}
+
+				span {
+					color: var(--global-light);
+				}
+			}
+		}
+	}
+}

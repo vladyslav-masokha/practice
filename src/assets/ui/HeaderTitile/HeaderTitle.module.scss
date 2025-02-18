@@ -1,0 +1,33 @@
+.headerTitle {
+  background-image: url("./images/header.png");
+  min-height: 70vh;
+  position: relative;
+
+  .wrapper {
+    padding: 0 15px;
+  }
+
+  .headerTitleBody {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--global-light);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .headerTitle {
+    border: none;
+
+    .wrapper {
+      padding: 0 30px;
+    }
+  }
+}

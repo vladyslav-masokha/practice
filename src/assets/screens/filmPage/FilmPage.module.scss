@@ -1,0 +1,43 @@
+.filmPage {
+	.film {
+		width: 100%;
+		margin: 30px 0 0;
+		padding: 0 15px;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 15px;
+
+		.cardImage {
+			width: 250px;
+			height: 250px;
+
+			border-radius: 20px;
+		}
+
+		.filmInfo {
+			margin: 15px 0 0 5px;
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+
+			.title {
+				margin: 0;
+				font-size: 24px;
+				font-style: italic;
+				color: var(--global-light);
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.animalPage {
+		.animal {
+			.cardImage {
+				// width: 30%;
+			}
+		}
+	}
+}

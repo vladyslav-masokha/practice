@@ -1,0 +1,79 @@
+.form {
+	width: 100%;
+	max-width: 700px;
+	margin: 30px auto;
+	padding: 20px;
+	text-align: center;
+
+	.formGaps {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.title {
+		margin: 15px 0;
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	.errorMessage {
+		color: var(--global-red);
+	}
+
+	.successMessage {
+		color: var(--global-pastel-light);
+	}
+
+	.errorMessage,
+	.successMessage {
+		margin: 0 0 15px;
+		font-weight: bold;
+	}
+
+	.formBody {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+
+		input {
+			width: 100%;
+		}
+	}
+
+	> div {
+		width: 100%;
+	}
+
+	.forgotBtn {
+		position: relative;
+
+		> button {
+			font-size: 12px;
+			font-weight: 700;
+			color: var(--global-pastel-dark);
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	.loginBtns:not(.regBtns),
+	.regBtns:not(.regBtns),
+	.resetBtns:not(.regBtns) {
+		margin: 25px 0 0;
+
+		button {
+			color: var(--global-pastel);
+		}
+	}
+
+	.signInGoogle {
+		background-color: var(--global-pastel-light);
+	}
+
+	.resetBtn {
+		width: 100%;
+		margin: 5px 0 0;
+		color: var(--global-pastel);
+	}
+}
