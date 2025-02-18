@@ -6,7 +6,7 @@
 
 ## Посилання
 
-https://sparkling-cocada-6f7251.netlify.app/
+https://sparkling-sprite-968414.netlify.app/
 
 ## Властивості
 
