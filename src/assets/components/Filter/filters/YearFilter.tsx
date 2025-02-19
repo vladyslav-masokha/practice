@@ -10,13 +10,13 @@ interface AgeProps {
 }
 
 const YearFilter: React.FC<AgeProps> = ({ setYearFilter, applyFilters }) => {
-	const [yearRange, setYearRange] = useState<[number, number]>([2006, 2025])
+	const [yearRange, setYearRange] = useState<[number, number]>([1980, 2025])
 
 	useEffect(() => applyFilters(), [yearRange, applyFilters])
 
 	const handleAgeChange = (_event: Event, newValue: number | number[]) => {
 		if (Array.isArray(newValue)) setYearRange([newValue[0], newValue[1]])
-		else setYearRange([0, newValue])
+		else setYearRange([1980, newValue])
 	}
 
 	const handleInputChange = (
@@ -39,19 +39,19 @@ const YearFilter: React.FC<AgeProps> = ({ setYearFilter, applyFilters }) => {
 				color='secondary'
 				valueLabelDisplay='auto'
 				valueLabelFormat={valueLabelFormatAge}
-				min={2006}
+				min={1980}
 				max={2025}
 			/>
 
 			<div className={styles.filterAgeInputs}>
 				<TextField
-					placeholder='2006'
+					placeholder='1980'
 					value={yearRange[0]}
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 						handleInputChange(e, 'min')
 					}
 					type='number'
-					InputProps={{ inputProps: { min: 2006, max: yearRange[1] } }}
+					InputProps={{ inputProps: { min: 1980, max: yearRange[1] } }}
 				/>
 				<TextField
 					placeholder='2025'
