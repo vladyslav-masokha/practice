@@ -9,7 +9,7 @@
 		width: 90%;
 		max-width: 300px;
 		margin: 0 auto;
-		box-shadow: 0 0 10px var(--global-dark);
+		box-shadow: 0 0 20px var(--global-light);
 		border-radius: 20px;
 		transform: scale(1);
 
@@ -27,7 +27,7 @@
 
 		.cardInfo {
 			padding: 15px;
-			color: var(--global-dark);
+			color: var(--global-light);
 
 			.title {
 				margin: 0;

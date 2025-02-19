@@ -1,20 +1,28 @@
 .form {
 	width: 100%;
 	max-width: 700px;
-	margin: 30px auto;
-	padding: 20px;
+
+	margin: 50px auto;
+	padding: 40px;
+
 	text-align: center;
+	color: var(--global-light);
+	background-color: var(--global-light);
+	border-radius: 20px;
 
 	.formGaps {
 		display: flex;
 		flex-direction: column;
 		gap: 5px;
+
+
 	}
 
 	.title {
 		margin: 15px 0;
 		font-size: 24px;
 		font-weight: 700;
+		color: var(--global-bolddark);
 	}
 
 	.errorMessage {
@@ -31,7 +39,7 @@
 		font-weight: bold;
 	}
 
-	.formBody {
+	.formBody, {
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
@@ -51,29 +59,35 @@
 		> button {
 			font-size: 12px;
 			font-weight: 700;
-			color: var(--global-pastel-dark);
+			color: var(--global-blue);
 			position: absolute;
 			right: 0;
 		}
 	}
 
-	.loginBtns:not(.regBtns),
-	.regBtns:not(.regBtns),
-	.resetBtns:not(.regBtns) {
+	.loginBtns,
+	.regBtns,
+	.resetBtns {
 		margin: 25px 0 0;
 
 		button {
-			color: var(--global-pastel);
+			color: var(--global-yellow-dark);
 		}
 	}
 
 	.signInGoogle {
-		background-color: var(--global-pastel-light);
+		background-color: var(--global-blue);
 	}
 
 	.resetBtn {
 		width: 100%;
 		margin: 5px 0 0;
-		color: var(--global-pastel);
+		color: var(--global-blue);
 	}
+}
+
+.formFlex {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }

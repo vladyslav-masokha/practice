@@ -1,3 +1,4 @@
+import React from 'react'
 import { Auth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
 interface handleUserNameChangeProps {setUserName: (userName: string) => void}

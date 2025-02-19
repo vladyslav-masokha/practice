@@ -1,7 +1,7 @@
 import styles from './HeaderTitle.module.scss'
 import {Logo} from "../Header/logo/Logo.tsx";
 import {Navigation} from "../Header/Navigation/Navigation.tsx";
-import {Search} from "../../components/Search/Search.tsx";
+// import {Search} from "../../components/Search/Search.tsx";
 
 const HeaderTitle = () => {
     return (
@@ -14,7 +14,7 @@ const HeaderTitle = () => {
 
                 <h1>«Відкрийте для себе світ кіно - дивіться найкращі фільми та серіали в будь-який час!».</h1>
 
-                <Search />
+                {/*<Search />*/}
             </div>
         </header>
     )

@@ -8,6 +8,7 @@ import { handleEmailBlur } from '../../ui/Form/handleBlurLogic/HandleEmailBlur'
 import { helperTextEmailLogic } from '../../ui/Form/helperLogic/HelperTextEmailLogic'
 import { handleEmailChange } from '../../ui/Form/logic/AuthLogic'
 import { handleResetPassword } from '../../ui/Form/logic/ResetPasswordService'
+import {HomeButton} from "../../ui/HomeButton/HomeButton.tsx";
 
 const ResetPasswordPage = () => {
 	const [successMessage, setSuccessMessage] = useState<string | null>(null)
@@ -46,6 +47,7 @@ const ResetPasswordPage = () => {
 			/>
 
 			<AuthBtnResetPassword handleResetClick={handleResetClick} />
+			<HomeButton />
 		</div>
 	)
 }

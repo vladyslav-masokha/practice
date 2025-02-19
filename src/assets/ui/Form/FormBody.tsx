@@ -1,3 +1,4 @@
+import React from 'react'
 import { TextField } from '@mui/material'
 import styles from './Form.module.scss'
 import { handleEmailBlur } from './handleBlurLogic/HandleEmailBlur'
@@ -5,8 +6,6 @@ import { handlePasswordBlur } from './handleBlurLogic/HandlePasswordBlur'
 import { helperTextEmailLogic } from './helperLogic/HelperTextEmailLogic'
 import { HelperTextPasswordLogic } from './helperLogic/HelperTextPasswordLogic'
 import { handleEmailChange, handlePasswordChange } from './logic/AuthLogic'
-
-// type setSate<T> = void
 
 interface FormBodyProps {
 	email: string
@@ -36,7 +35,7 @@ const FormBody: React.FC<FormBodyProps> = ({
 		handlePasswordChange(e, { setPassword })
 
 	return (
-		<div className={styles.formBody}>
+		<div className={styles.formFlex}>
 			<TextField
 				required
 				type='email'
