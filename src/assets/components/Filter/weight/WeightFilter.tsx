@@ -2,7 +2,7 @@ import { TextField } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { valueLabelFormatWeight } from '../../../globalLogic/valueLabelFormatWeight'
 import styles from '../Filter.module.scss'
-import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
+import { sliderStyle as Slider } from '../filters/filterStyles/sliderStyle'
 
 interface WeightProps {
 	setWeightFilter: (weightRange: [number, number] | null) => void

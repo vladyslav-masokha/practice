@@ -1,7 +1,7 @@
 import React from "react";
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import styles from '../Filter.module.scss';
-import { radioStyles } from '../filterStyles/radioStyles.ts';
+import { radioStyles } from './filterStyles/radioStyles.ts';
 
 interface GenreFilterProps {
 	setGenreFilter: (genreFilter: string | null) => void;

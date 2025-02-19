@@ -2,7 +2,7 @@ import { TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { valueLabelFormatAge } from '../../../globalLogic/valueLabelFormatAge'
 import styles from '../Filter.module.scss'
-import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
+import { sliderStyle as Slider } from './filterStyles/sliderStyle'
 
 interface AgeProps {
 	setYearFilter: (yearRange: [number, number] | null) => void

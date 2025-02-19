@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import styles from '../Filter.module.scss'
-import { radioStyles } from '../filterStyles/radioStyles'
+import { radioStyles } from '../filters/filterStyles/radioStyles'
 
 interface TypeProps {
 	setTypeFilter: (typeFilter: string | null) => void
