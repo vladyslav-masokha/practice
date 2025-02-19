@@ -1,3 +1,4 @@
+import React from "react";
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import styles from '../Filter.module.scss';
 import { radioStyles } from '../filterStyles/radioStyles.ts';
@@ -32,14 +33,14 @@ const GenreFilter: React.FC<GenreFilterProps> = ({
 					
 					{availableGenres.map((genre) => (
 						<FormControlLabel
-							key={genre} // Важливо додати key для кожного елемента
+							key={genre}
 							value={genre}
 							control={<Radio sx={radioStyles} />}
 							label={genre}
 						/>
 					))}
 					<FormControlLabel
-						value="" // Для вибору "всі жанри"
+						value=""
 						control={<Radio sx={radioStyles} />}
 						label="Всі жанри"
 					/>

@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { valueLabelFormatAge } from '../../../globalLogic/valueLabelFormatAge'
 import styles from '../Filter.module.scss'
 import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
@@ -29,7 +29,7 @@ const YearFilter: React.FC<AgeProps> = ({ setYearFilter, applyFilters }) => {
 	}
 
 	return (
-		<div className={styles.filterAge}>
+		<div className={styles.filterYear}>
 			<h3>Рік</h3>
 
 			<Slider

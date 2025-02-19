@@ -28,7 +28,8 @@ const useFilterLogic = (
 	}, [
 		films,
 		setFilteredProducts,
-		yearFilter
+		yearFilter,
+		genreFilter,
 	])
 }
 
