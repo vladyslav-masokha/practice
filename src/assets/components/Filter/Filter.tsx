@@ -1,10 +1,9 @@
-import { Close, FilterAlt } from '@mui/icons-material'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { FilterAlt } from '@mui/icons-material'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { Film } from '../IFilm.ts'
 import styles from './Filter.module.scss'
-import { YearFilter } from './year/YearFilter.tsx'
-import { ButtonApplyFilter } from './applyFilter/ButtonApplyFilter'
 import { useFilterLogic } from './applyFilter/useFilterLogic'
+import {FilterBody} from "./FilterBody.tsx";
 
 interface FilterProps {
 	films: Film[]
@@ -14,11 +13,15 @@ interface FilterProps {
 const Filter: React.FC<FilterProps> = ({ films, setFilteredProducts }) => {
 	const [openFilter, setOpenFilter] = useState(false)
 	const [yearFilter, setYearFilter] = useState<[number, number] | null>(null)
+	const [genreFilter, setGenreFilter] = useState<string | null>(null);
+
+	const availableGenres = ["Фантастика", "Жахи", "Бойовик", "Пригоди", "Мелодрама"];
 
 	const applyFilters = useFilterLogic(
 		films,
 		setFilteredProducts,
-		yearFilter
+		yearFilter,
+		genreFilter
 	)
 
 	const openFilterFunction = () => setOpenFilter(!openFilter)
@@ -34,18 +37,14 @@ const Filter: React.FC<FilterProps> = ({ films, setFilteredProducts }) => {
 					Фільтр
 				</button>
 
-				<div className={logicOpenFilter}>
-					<button className={styles.closeFilter} onClick={openFilterFunction}>
-						<Close />
-					</button>
-
-					<YearFilter setYearFilter={setYearFilter} applyFilters={applyFilters} />
-
-					<ButtonApplyFilter
-						applyFilters={applyFilters}
-						openFilterFunction={openFilterFunction}
-					/>
-				</div>
+				<FilterBody
+					logicOpenFilter={logicOpenFilter}
+					openFilterFunction={openFilterFunction}
+					setYearFilter={setYearFilter}
+					setGenreFilter={setGenreFilter}
+					applyFilters={applyFilters}
+					availableGenres={availableGenres}
+				/>
 			</div>
 		</div>
 	)

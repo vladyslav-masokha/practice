@@ -1,3 +1,4 @@
+import React from "react";
 import { Film } from '../IFilm.ts'
 import { FilmCard } from './FilmCard.tsx'
 import styles from './filmCard.module.scss'

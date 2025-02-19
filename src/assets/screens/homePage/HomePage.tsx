@@ -4,7 +4,7 @@ import { Footer } from '../../ui/footer/Footer'
 import { useFetchData } from '../../useFetchData'
 import styles from './HomePage.module.scss'
 import {HeaderTitle} from "../../ui/HeaderTitile/HeaderTitle.tsx";
-import {FilmsCards} from "../../components/AnimalCards/FilmsCard.tsx";
+import {FilmsCards} from "../../components/FilmCards/FilmsCard.tsx";
 import {Filter} from "../../components/Filter/Filter.tsx";
 
 const HomePage = () => {
