@@ -21,7 +21,7 @@ https://sparkling-cocada-6f7251.netlify.app/
 1. Завантажте або склонуйте репозиторій на свій локальний комп'ютер.
 
 ```bash
-git clone https://github.com/your-username/animal-shelter.git
+git clone https://github.com/vladyslav-masokha/animal-shelter.git
 ```
 
 2. Перейдіть в папку проекту.
