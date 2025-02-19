@@ -29,7 +29,7 @@ const YearFilter: React.FC<AgeProps> = ({ setYearFilter, applyFilters }) => {
 	}
 
 	return (
-		<div className={styles.filterAge}>
+		<div className={styles.filterYear}>
 			<h3>Рік</h3>
 
 			<Slider
