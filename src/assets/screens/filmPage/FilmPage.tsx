@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom'
 import { useTitleLogic } from '../../globalLogic/titleLogic'
-// import { valueLabelFormatAge } from '../../globalLogic/valueLabelFormatAge'
-// import { valueLabelFormatWeight } from '../../globalLogic/valueLabelFormatWeight'
 import { Header } from '../../ui/Header/Header'
 import { Footer } from '../../ui/footer/Footer'
 import { useFetchData } from '../../useFetchData'
@@ -12,7 +10,7 @@ const FilmPage = () => {
 	const filmsData = './films.json'
 
 	const data = useFetchData(filmsData)
-	const film = data.find(film => film.id === +id)
+	const film = data.find(film => film.imdbID === id)
 
 	useTitleLogic({ namePage: film ? film.title : '', id: +id })
 
@@ -26,7 +24,7 @@ const FilmPage = () => {
 						<div className={styles.film}>
 							<img
 								className={styles.cardImage}
-								src={film.image}
+								src={film.img}
 								alt={film.title}
 								loading='lazy'
 							/>
@@ -36,7 +34,7 @@ const FilmPage = () => {
 							</div>
 
 							<iframe name="playerfr" id="playerfr" loading="lazy" scrolling="no"
-									src="https://ashdi.vip/vod/165311?" frameBorder="0" width="100%" height="500px"
+									src={film.link} frameBorder="0" width="100%" height="500px"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;"></iframe>
 						</div>
 					) : (

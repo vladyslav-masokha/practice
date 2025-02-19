@@ -1,5 +1,5 @@
 interface Film {
-	imdbID: number
+	imdbID: string
 	title: string
 	year: number
 	genre: string[]

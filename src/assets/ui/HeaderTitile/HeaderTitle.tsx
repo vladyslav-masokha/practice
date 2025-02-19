@@ -6,7 +6,6 @@ import {Search} from "../../components/Search/Search.tsx";
 const HeaderTitle = () => {
     return (
         <header className={styles.headerTitle}>
-            <div className={styles.bg}></div>
             <div className='wrapper'>
                 <div className={styles.headerTitleBody}>
                     <Logo />
