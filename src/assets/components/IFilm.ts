@@ -1,11 +1,10 @@
 interface Film {
-	id: number
+	imdbID: string
 	title: string
 	year: number
-	rating: number
-	country: string
 	genre: string[]
-	image: string
+	img: string
+	link: string
 }
 
 export type { Film }

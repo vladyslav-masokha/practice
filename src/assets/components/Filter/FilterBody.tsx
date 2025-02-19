@@ -2,12 +2,12 @@ import React from 'react'
 import styles from "./Filter.module.scss";
 import { Close } from "@mui/icons-material";
 import { YearFilter } from "./filters/YearFilter.tsx";
-import { GenreFilter } from "./genre/GenreFilter.tsx";
+import { GenreFilter } from "./filters/GenreFilter.tsx";
 import { ButtonApplyFilter } from "./applyFilter/ButtonApplyFilter.tsx";
 
 interface FilterBodyProps {
-    logicOpenFilter: string; // Тип для класу
-    openFilterFunction: () => void; // Тип для функції
+    logicOpenFilter: string;
+    openFilterFunction: () => void;
     setYearFilter: React.Dispatch<React.SetStateAction<[number, number] | null>>;
     setGenreFilter: React.Dispatch<React.SetStateAction<string | null>>;
     applyFilters: () => void;

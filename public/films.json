@@ -1,38 +1,42 @@
 [
 	{
-		"id": 1,
+		"imdbID": "tt0076759",
 		"title": "Ущелина",
 		"year": 2025,
-		"rating": 5,
-		"country": "Велика Британія, США",
-		"genre": ["Екшн", "Мелодрами", "Пригоди", "Трилери", "Жахи", "Фантастика"],
-		"image": "./images/films/3713fe4d4d69e0f8580e4c779d7d32.webp"
+		"genre": ["Фантастика", "Жахи", "Бойовик", "Пригоди", "Мелодрама"],
+		"img": "https://uakino.me/uploads/mini/poster/c1/3713fe4d4d69e0f8580e4c779d7d32.jpg",
+		"link": "https://ashdi.vip/vod/165311?"
 	},
 	{
-		"id": 2,
-		"title": "Ущелина",
-		"year": 2025,
-		"rating": 5,
-		"country": "Велика Британія, США",
-		"genre": ["Екшн", "Мелодрами", "Пригоди", "Трилери", "Жахи", "Фантастика"],
-		"image": "./images/films/3713fe4d4d69e0f8580e4c779d7d32.webp"
+		"imdbID": "tt0080684",
+		"title": "Зоряні війни: Епізод V - Імперія завдає удару у відповідь",
+		"year": 1980,
+		"genre": ["Бойовик", "Пригоди", "Фантастика"],
+		"img": "https://uakino.me/uploads/mini/poster/4b/5ba8a4aef1cd80a53656599141cf33.jpg",
+		"link": "https://ashdi.vip/vod/425"
 	},
 	{
-		"id": 3,
-		"title": "Ущелина",
-		"year": 2025,
-		"rating": 5,
-		"country": "Велика Британія, США",
-		"genre": ["Екшн", "Мелодрами", "Пригоди", "Трилери", "Жахи", "Фантастика"],
-		"image": "./images/films/3713fe4d4d69e0f8580e4c779d7d32.webp"
+		"imdbID": "tt0086190",
+		"title": "Зоряні війни: Епізод VI - Повернення джедая",
+		"year": 1983,
+		"genre": ["Бойовик", "Пригоди", "Фантастика"],
+		"img": "https://uakino.me/uploads/mini/poster/cf/0644d87e650bb1863f1d2a1a7cf3e2.webp",
+		"link": "https://ashdi.vip/vod/431"
 	},
 	{
-		"id": 4,
-		"title": "Ущелина",
-		"year": 2025,
-		"rating": 5,
-		"country": "Велика Британія, США",
-		"genre": ["Екшн", "Мелодрами", "Пригоди", "Трилери", "Жахи", "Фантастика"],
-		"image": "./images/films/3713fe4d4d69e0f8580e4c779d7d32.webp"
+		"imdbID": "tt0114709",
+		"title": "Сім",
+		"year": 1995,
+		"genre": ["Кримінал", "Драма", "Триллер"],
+		"img": "https://uakino.me/uploads/mini/poster/d0/35d916310ee88ebe0616a405eafd22.jpg",
+		"link": "https://ashdi.vip/vod/3203"
+	},
+	{
+		"imdbID": "tt0110357",
+		"title": "Леон",
+		"year": 1994,
+		"genre": ["Бойовик", "Драма", "Кримінал"],
+		"img": "https://uakino.me/uploads/mini/poster/4f/60131b97baa0575b0a0314850d2961.webp",
+		"link": "https://ashdi.vip/vod/324"
 	}
 ]

@@ -14,6 +14,7 @@ import { handleUserNameBlur } from '../../ui/Form/handleBlurLogic/HandleUserName
 import { helperTextUserNameLogic } from '../../ui/Form/helperLogic/HelperTextUserNameLogic'
 import { handleUserNameChange } from '../../ui/Form/logic/AuthLogic'
 import { handleRegister } from '../../ui/Form/logic/RegisterService'
+import {HomeButton} from "../../ui/HomeButton/HomeButton.tsx";
 
 const RegisterPage = () => {
 	const history = useHistory()
@@ -89,6 +90,8 @@ const RegisterPage = () => {
 					<FormBody {...formProps} />
 					<AuthBtnRegister {...btnRegisterProps} />
 					<SignInWithGoogle auth={auth} />
+
+					<HomeButton />
 				</div>
 			</div>
 		</form>

@@ -12,6 +12,7 @@ import { AuthBtnForgotPassword } from '../../ui/Form/buttons/AuthBtnForgotPasswo
 import { AuthBtnLogin } from '../../ui/Form/buttons/AuthBtnLogin'
 import { SignInWithGoogle } from '../../ui/Form/buttons/AuthBtnSignInWithGoogle'
 import { handleLogin } from '../../ui/Form/logic/LoginService'
+import {HomeButton} from "../../ui/HomeButton/HomeButton.tsx";
 
 const LoginPage = () => {
 	const history = useHistory()
@@ -63,6 +64,8 @@ const LoginPage = () => {
 					<AuthBtnForgotPassword />
 					<AuthBtnLogin {...btnLoginProps} />
 					<SignInWithGoogle auth={auth} />
+
+					<HomeButton	/>
 				</div>
 			</div>
 		</form>
