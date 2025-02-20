@@ -1,22 +1,25 @@
 import { TextField } from '@mui/material'
-import { useEffect, useState } from 'react'
-import { valueLabelFormatAge } from '../../../globalLogic/valueLabelFormatAge'
+import React, { useEffect, useState } from 'react'
+import { valueLabelFormatYear } from '../../../globalLogic/valueLabelFormatYear'
 import styles from '../Filter.module.scss'
 import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
 
-interface AgeProps {
+interface YearProps {
 	setYearFilter: (yearRange: [number, number] | null) => void
 	applyFilters: () => void
 }
 
-const YearFilter: React.FC<AgeProps> = ({ setYearFilter, applyFilters }) => {
-	const [yearRange, setYearRange] = useState<[number, number]>([1980, 2025])
+const MIN_YEAR = 1972;
+const MAX_YEAR = 2025;
+
+const YearFilter: React.FC<YearProps> = ({ setYearFilter, applyFilters }) => {
+	const [yearRange, setYearRange] = useState<[number, number]>([MIN_YEAR, MAX_YEAR])
 
 	useEffect(() => applyFilters(), [yearRange, applyFilters])
 
 	const handleAgeChange = (_event: Event, newValue: number | number[]) => {
 		if (Array.isArray(newValue)) setYearRange([newValue[0], newValue[1]])
-		else setYearRange([1980, newValue])
+		else setYearRange([MIN_YEAR, newValue])
 	}
 
 	const handleInputChange = (
@@ -38,29 +41,29 @@ const YearFilter: React.FC<AgeProps> = ({ setYearFilter, applyFilters }) => {
 				onChangeCommitted={() => setYearFilter(yearRange)}
 				color='secondary'
 				valueLabelDisplay='auto'
-				valueLabelFormat={valueLabelFormatAge}
-				min={1980}
-				max={2025}
+				valueLabelFormat={valueLabelFormatYear}
+				min={MIN_YEAR}
+				max={MAX_YEAR}
 			/>
 
 			<div className={styles.filterAgeInputs}>
 				<TextField
-					placeholder='1980'
+					placeholder={MIN_YEAR.toString()}
 					value={yearRange[0]}
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 						handleInputChange(e, 'min')
 					}
 					type='number'
-					InputProps={{ inputProps: { min: 1980, max: yearRange[1] } }}
+					InputProps={{ inputProps: { min: MIN_YEAR, max: yearRange[1] } }}
 				/>
 				<TextField
-					placeholder='2025'
+					placeholder={MAX_YEAR.toString()}
 					value={yearRange[1]}
 					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
 						handleInputChange(e, 'max')
 					}
 					type='number'
-					InputProps={{ inputProps: { min: yearRange[0], max: 2025 } }}
+					InputProps={{ inputProps: { min: yearRange[0], max: MAX_YEAR } }}
 				/>
 			</div>
 		</div>

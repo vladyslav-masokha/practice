@@ -1,4 +1,4 @@
-const valueLabelFormatAge = (value: number) => {
+const valueLabelFormatYear = (value: number) => {
 	if (value % 10 === 1 && value !== 11) return `${value} рік`
 
 	if (
@@ -11,4 +11,4 @@ const valueLabelFormatAge = (value: number) => {
 	return `${value} років`
 }
 
-export { valueLabelFormatAge }
+export { valueLabelFormatYear }

@@ -41,7 +41,6 @@ const Navigation = () => {
 			<nav className={styles.nav} role='navigation'>
 				<ul className={open ? `${styles.visible}` : ''}>
 					<NavLink page='Головна' path='/' />
-					<NavLink page='Фільми' path='/films' />
 					<NavLink page='Про Нас' path='/about' />
 
 					<UserActions user={user} handleLogout={handleLogout} />

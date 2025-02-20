@@ -15,7 +15,7 @@ const Filter: React.FC<FilterProps> = ({ films, setFilteredProducts }) => {
 	const [yearFilter, setYearFilter] = useState<[number, number] | null>(null)
 	const [genreFilter, setGenreFilter] = useState<string | null>(null);
 
-	const availableGenres = ["Фантастика", "Жахи", "Бойовик", "Пригоди", "Мелодрама"];
+	const availableGenres = ["Фантастика", "Жахи", "Бойовик", "Пригоди", "Мелодрама", "Кримінал", "Екшн", "Драма", "Трилер", "Комедія", "Вестерн"];
 
 	const applyFilters = useFilterLogic(
 		films,

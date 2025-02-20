@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { AboutPage } from './assets/screens/aboutPage/AboutPage.tsx'
 import { FilmPage } from './assets/screens/filmPage/FilmPage.tsx'
-import { FilmsPage } from './assets/screens/filmsPage/FilmsPage.tsx'
 import { ErrorPage } from './assets/screens/errorPage/ErrorPage.tsx'
 import { HomePage } from './assets/screens/homePage/HomePage.tsx'
 import { LoginPage } from './assets/screens/loginPage/LoginPage.tsx'
@@ -19,7 +18,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 			<Switch>
 				<Route exact path='/' component={HomePage} />
 				<Route exact path='/profile' component={UserProfilePage} />
-				<Route exact path='/films' component={FilmsPage} />
 				<Route exact path='/about' component={AboutPage} />
 				<Route exact path='/login' component={LoginPage} />
 				<Route exact path='/register' component={RegisterPage} />

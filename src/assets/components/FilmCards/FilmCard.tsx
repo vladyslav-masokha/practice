@@ -18,6 +18,7 @@ const FilmCard: React.FC<{ films: Film[] }> = ({ films }) => {
 
 						<div className={styles.cardInfo}>
 							<h3 className={styles.title}>{film.title}</h3>
+							<p className={styles.year}>{film.year}</p>
 						</div>
 					</Link>
 				))
