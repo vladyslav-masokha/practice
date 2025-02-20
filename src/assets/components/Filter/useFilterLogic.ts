@@ -1,5 +1,5 @@
 import {Dispatch, SetStateAction, useCallback} from 'react'
-import {Film} from '../../IFilm.ts'
+import {Film} from '../IFilm.ts'
 
 const useFilterLogic = (
 	films: Film[],

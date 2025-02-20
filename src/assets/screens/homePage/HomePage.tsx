@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Film } from '../../components/IFilm.ts'
 import { Footer } from '../../ui/footer/Footer'
-import { useFetchData } from '../../useFetchData'
+import { useFetchDataFilms } from '../../logics/useFetchDataFilms.ts'
 import styles from './HomePage.module.scss'
 import {HeaderTitle} from "../../ui/HeaderTitile/HeaderTitle.tsx";
 import {FilmsCards} from "../../components/FilmCards/FilmsCard.tsx";
@@ -11,7 +11,7 @@ const HomePage = () => {
 	const [films, setFilms] = useState<Film[]>([])
 	const [filteredProducts, setFilteredProducts] = useState<Film[]>([])
 	const animalsData = './films.json'
-	const data = useFetchData(animalsData)
+	const data = useFetchDataFilms(animalsData)
 
 	useEffect(() => {
 		setFilms(data)

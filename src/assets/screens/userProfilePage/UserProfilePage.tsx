@@ -1,4 +1,4 @@
-import { useTitleLogic } from '../../globalLogic/titleLogic'
+import { useTitleLogic } from '../../logics/titleLogic.tsx'
 import { Header } from '../../ui/Header/Header'
 import { Footer } from '../../ui/footer/Footer'
 import styles from './UserProfile.module.scss'

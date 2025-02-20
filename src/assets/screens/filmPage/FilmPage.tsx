@@ -1,15 +1,15 @@
 import { useParams } from 'react-router-dom'
-import { useTitleLogic } from '../../globalLogic/titleLogic'
+import { useTitleLogic } from '../../logics/titleLogic.tsx'
 import { Header } from '../../ui/Header/Header'
 import { Footer } from '../../ui/footer/Footer'
-import { useFetchData } from '../../useFetchData'
+import { useFetchDataFilms } from '../../logics/useFetchDataFilms.ts'
 import styles from './FilmPage.module.scss'
 
 const FilmPage = () => {
 	const { id } = useParams<{ id: string }>()
 	const filmsData = './films.json'
 
-	const data = useFetchData(filmsData)
+	const data = useFetchDataFilms(filmsData)
 	const film = data.find(film => film.imdbID === id)
 
 	useTitleLogic({ namePage: film ? film.title : '', id: +id })

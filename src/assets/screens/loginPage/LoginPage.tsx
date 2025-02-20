@@ -3,9 +3,9 @@ import { getAuth } from 'firebase/auth'
 import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useHistory } from 'react-router-dom'
-import { MessageLogic } from '../../globalLogic/messageLogic'
-import { redirectAfterTimeout } from '../../globalLogic/redirectAfterTimeout'
-import { useTitleLogic } from '../../globalLogic/titleLogic'
+import { MessagesLogic } from '../../logics/messagesLogic.tsx'
+import { redirectAfterTimeoutLogic } from '../../logics/redirectAfterTimeoutLogic.ts'
+import { useTitleLogic } from '../../logics/titleLogic.tsx'
 import styles from '../../ui/Form/Form.module.scss'
 import { FormBody } from '../../ui/Form/FormBody'
 import { AuthBtnForgotPassword } from '../../ui/Form/buttons/AuthBtnForgotPassword'
@@ -28,7 +28,7 @@ const LoginPage = () => {
 	const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
 
 	useTitleLogic({ namePage: 'Авторизація', id: null })
-	redirectAfterTimeout({ user, history })
+	redirectAfterTimeoutLogic({ user, history })
 
 	const handleLoginClick = () =>
 		handleLogin(
@@ -59,7 +59,7 @@ const LoginPage = () => {
 				<div className={styles.formGaps}>
 					<Typography className={styles.title}>Логін</Typography>
 
-					<MessageLogic {...messageProps} />
+					<MessagesLogic {...messageProps} />
 					<FormBody {...formProps} />
 					<AuthBtnForgotPassword />
 					<AuthBtnLogin {...btnLoginProps} />

@@ -2,7 +2,7 @@ import { FilterAlt } from '@mui/icons-material'
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { Film } from '../IFilm.ts'
 import styles from './Filter.module.scss'
-import { useFilterLogic } from './applyFilter/useFilterLogic'
+import { useFilterLogic } from './useFilterLogic.ts'
 import {FilterBody} from "./FilterBody.tsx";
 
 interface FilterProps {

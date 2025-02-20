@@ -1,7 +1,7 @@
 import { TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import { MessageLogic } from '../../globalLogic/messageLogic'
-import { useTitleLogic } from '../../globalLogic/titleLogic'
+import { MessagesLogic } from '../../logics/messagesLogic.tsx'
+import { useTitleLogic } from '../../logics/titleLogic.tsx'
 import styles from '../../ui/Form/Form.module.scss'
 import { AuthBtnResetPassword } from '../../ui/Form/buttons/AuthBtnResetPassword'
 import { handleEmailBlur } from '../../ui/Form/handleBlurLogic/HandleEmailBlur'
@@ -25,7 +25,7 @@ const ResetPasswordPage = () => {
 	return (
 		<div className={styles.form}>
 			<Typography className={styles.title}>Відновлення пароля</Typography>
-			<MessageLogic
+			<MessagesLogic
 				successMessage={successMessage}
 				errorMessage={errorMessage}
 			/>

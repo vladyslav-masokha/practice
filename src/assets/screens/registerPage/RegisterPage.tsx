@@ -3,9 +3,9 @@ import { getAuth } from 'firebase/auth'
 import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useHistory } from 'react-router-dom'
-import { MessageLogic } from '../../globalLogic/messageLogic'
-import { redirectAfterTimeout } from '../../globalLogic/redirectAfterTimeout'
-import { useTitleLogic } from '../../globalLogic/titleLogic'
+import { MessagesLogic } from '../../logics/messagesLogic.tsx'
+import { redirectAfterTimeoutLogic } from '../../logics/redirectAfterTimeoutLogic.ts'
+import { useTitleLogic } from '../../logics/titleLogic.tsx'
 import styles from '../../ui/Form/Form.module.scss'
 import { FormBody } from '../../ui/Form/FormBody'
 import { AuthBtnRegister } from '../../ui/Form/buttons/AuthBtnRegister'
@@ -32,7 +32,7 @@ const RegisterPage = () => {
 	const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
 
 	useTitleLogic({ namePage: 'Реєстрація', id: null })
-	redirectAfterTimeout({ user, history })
+	redirectAfterTimeoutLogic({ user, history })
 
 	const handleRegisterClick = () =>
 		handleRegister(
@@ -70,7 +70,7 @@ const RegisterPage = () => {
 		<form className={styles.form}>
 			<div className='wrapper'>
 				<Typography className={styles.title}>Реєстрація</Typography>
-				<MessageLogic {...messageProps} />
+				<MessagesLogic {...messageProps} />
 
 				<div className={styles.formBody}>
 					<TextField
