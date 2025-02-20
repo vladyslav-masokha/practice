@@ -3,6 +3,7 @@ import styles from "./Filter.module.scss";
 import {Close} from "@mui/icons-material";
 import { YearFilter } from "./filters/YearFilter.tsx";
 import { GenreFilter } from "./filters/GenreFilter.tsx";
+import {Search} from "../../ui/Search/Search.tsx";
 
 interface FilterBodyProps {
     logicOpenFilter: string;
@@ -28,7 +29,7 @@ const FilterBody: React.FC<FilterBodyProps> = ({
                 <Close />
             </button>
 
-            {/*<Search />*/}
+            <Search />
 
             <YearFilter setYearFilter={setYearFilter} applyFilters={applyFilters} />
             <GenreFilter
