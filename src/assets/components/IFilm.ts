@@ -3,6 +3,7 @@ interface Film {
 	title: string
 	year: number
 	genre: string[]
+	description: string
 	img: string
 	link: string
 }

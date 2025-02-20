@@ -9,7 +9,6 @@ const AboutPage = () => {
 
 	const aboutData = '/about.json';
 	const data = useFetchDataAbout(aboutData)
-	console.log(data)
 
 	return (
 		<>
@@ -20,12 +19,12 @@ const AboutPage = () => {
 					<h2>Про Нас</h2>
 
 					<div className={styles.aboutBody}>
-						{/*{data.aboutText.map((item: { paragraph1: string; paragraph2: string; }, index: number) => (*/}
-						{/*	<div key={index}>*/}
-						{/*		<p>{item.paragraph1}</p>*/}
-						{/*		<p>{item.paragraph2}</p>*/}
-						{/*	</div>*/}
-						{/*))}*/}
+						{data.map((item: { paragraph1: string; paragraph2: string; }, index: number) => (
+							<div key={index}>
+								<p>{item.paragraph1}</p>
+								<p>{item.paragraph2}</p>
+							</div>
+						))}
 					</div>
 
 					<div className={styles.aboutLocation}>

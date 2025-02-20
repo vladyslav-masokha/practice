@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
+import {IAbout} from "../components/IAbout.ts";
 
-const useFetchDataAbout = <T>(url: string) => {
-	const [data, setData] = useState<T | null>(null);
+const useFetchDataAbout = (url: string) => {
+	const [data, setData] = useState<IAbout[]>([])
 	useEffect(() => {
 		fetch(url)
 			.then(res => res.json())

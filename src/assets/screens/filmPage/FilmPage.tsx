@@ -22,16 +22,21 @@ const FilmPage = () => {
 				<div className='wrapper'>
 					{film ? (
 						<div className={styles.film}>
-							<img
-								className={styles.cardImage}
-								src={film.img}
-								alt={film.title}
-								loading='lazy'
-							/>
+							<div className={styles.filmBody}>
+								<img
+									className={styles.cardImage}
+									src={film.img}
+									alt={film.title}
+									loading='lazy'
+								/>
 
-							<div className={styles.filmInfo}>
-								<h3 className={styles.title}>{film.title}</h3>
+								<div className={styles.filmInfo}>
+									<h3 className={styles.title}>Назва: {film.title}</h3>
+									<p className={styles.year}>Рік: {film.year}</p>
+								</div>
 							</div>
+
+							<p>{film.description}</p>
 
 							<iframe name="playerfr" id="playerfr" loading="lazy" scrolling="no"
 									src={film.link} frameBorder="0" width="100%" height="500px"

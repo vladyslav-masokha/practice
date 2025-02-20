@@ -13,7 +13,7 @@
 	transition: transform 1s ease;
 	z-index: 2;
 
-	background-color: var(--global-pastel-dark);
+	background-color: var(--global-blue);
 
 	.userAction {
 		display: flex;
@@ -56,11 +56,10 @@
 }
 
 .userAction {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	margin: 15px 0 0;
-	display: none;
 
 	.logBtn,
 	.regBtn,

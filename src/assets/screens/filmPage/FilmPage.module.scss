@@ -11,9 +11,13 @@
 
 		.cardImage {
 			width: 250px;
-			height: 250px;
+		}
 
-			border-radius: 20px;
+		.filmBody {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: flex-start;
 		}
 
 		.filmInfo {
@@ -27,6 +31,7 @@
 				font-size: 24px;
 				font-style: italic;
 				color: var(--global-light);
+				max-width: 400px;
 			}
 		}
 	}
