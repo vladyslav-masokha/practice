@@ -6,7 +6,7 @@
 
 ## Посилання
 
-https://sparkling-sprite-968414.netlify.app/
+https://animated-narwhal-4e4491.netlify.app/
 
 ## Властивості
 
