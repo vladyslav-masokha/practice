@@ -1,8 +1,8 @@
 import { TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { valueLabelFormatYear } from '../../../globalLogic/valueLabelFormatYear'
+import { valueLabelFormatYear } from '../../../logics/valueLabelFormatYear.ts'
 import styles from '../Filter.module.scss'
-import { sliderStyle as Slider } from '../filterStyles/sliderStyle'
+import { sliderStyle as Slider } from '../styles/sliderStyle'
 
 interface YearProps {
 	setYearFilter: (yearRange: [number, number] | null) => void

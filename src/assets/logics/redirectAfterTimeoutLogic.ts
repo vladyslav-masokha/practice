@@ -6,7 +6,7 @@ interface redirectAfterTimeoutProps {
 	history: History<LocationState>
 }
 
-const redirectAfterTimeout = ({
+const redirectAfterTimeoutLogic = ({
 	user,
 	history,
 }: redirectAfterTimeoutProps): void => {
@@ -15,4 +15,4 @@ const redirectAfterTimeout = ({
 	}, 1000)
 }
 
-export { redirectAfterTimeout }
+export { redirectAfterTimeoutLogic }

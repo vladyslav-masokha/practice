@@ -1,3 +1,4 @@
+import React from 'react'
 import styles from '../ui/Form/Form.module.scss'
 
 interface MessageLogicProps {
@@ -5,7 +6,7 @@ interface MessageLogicProps {
 	errorMessage: string | null
 }
 
-const MessageLogic: React.FC<MessageLogicProps> = ({
+const MessagesLogic: React.FC<MessageLogicProps> = ({
 	successMessage,
 	errorMessage,
 }) => {
@@ -23,4 +24,4 @@ const MessageLogic: React.FC<MessageLogicProps> = ({
 	return <div className={logicStyles()}>{logicMessage()}</div>
 }
 
-export { MessageLogic }
+export { MessagesLogic }
