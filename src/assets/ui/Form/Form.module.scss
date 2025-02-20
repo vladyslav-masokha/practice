@@ -10,6 +10,8 @@
 	background-color: var(--global-light);
 	border-radius: 20px;
 
+	position: relative;
+
 	.formGaps {
 		display: flex;
 		flex-direction: column;
@@ -71,7 +73,7 @@
 		margin: 25px 0 0;
 
 		button {
-			color: var(--global-yellow-dark);
+			color: var(--global-bolddark);
 		}
 	}
 

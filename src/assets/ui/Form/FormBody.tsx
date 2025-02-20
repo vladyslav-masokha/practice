@@ -1,11 +1,12 @@
-import React from 'react'
-import { TextField } from '@mui/material'
+import React, {useState} from 'react'
+import {IconButton, InputAdornment, TextField} from '@mui/material'
 import styles from './Form.module.scss'
 import { handleEmailBlur } from './handleBlurLogic/HandleEmailBlur'
 import { handlePasswordBlur } from './handleBlurLogic/HandlePasswordBlur'
 import { helperTextEmailLogic } from './helperLogic/HelperTextEmailLogic'
 import { HelperTextPasswordLogic } from './helperLogic/HelperTextPasswordLogic'
 import { handleEmailChange, handlePasswordChange } from './logic/AuthLogic'
+import {Visibility, VisibilityOff } from '@mui/icons-material';
 
 interface FormBodyProps {
 	email: string
@@ -34,6 +35,16 @@ const FormBody: React.FC<FormBodyProps> = ({
 	const handlePasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
 		handlePasswordChange(e, { setPassword })
 
+	const [showPassword, setShowPassword] = useState(false);
+
+	const handleClickShowPassword = () => {
+		setShowPassword(!showPassword);
+	};
+
+	const handleMouseDownPassword = (event: { preventDefault: () => void }) => {
+		event.preventDefault();
+	};
+
 	return (
 		<div className={styles.formFlex}>
 			<TextField
@@ -53,13 +64,27 @@ const FormBody: React.FC<FormBodyProps> = ({
 				required
 				id='outlined-password-input'
 				label='Пароль'
-				type='password'
+				type={showPassword ? 'text' : 'password'}
 				autoComplete='current-password'
 				value={password}
 				error={!isPasswordValid}
 				helperText={HelperTextPasswordLogic(isPasswordValid)}
 				onChange={handlePasswordInputChange}
 				onBlur={() => handlePasswordBlur(password, setIsPasswordValid)}
+				InputProps={{
+					endAdornment: (
+						<InputAdornment position="end">
+							<IconButton
+								aria-label="toggle password visibility"
+								onClick={handleClickShowPassword}
+								onMouseDown={handleMouseDownPassword}
+								edge="end"
+							>
+								{showPassword ? <VisibilityOff /> : <Visibility />}
+							</IconButton>
+						</InputAdornment>
+					),
+				}}
 			/>
 		</div>
 	)
