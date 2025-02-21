@@ -2,7 +2,7 @@ import { IAuthUser } from "./IAuthUser.ts";
 import React from "react";
 import {getAuth, updateProfile, updateEmail, sendEmailVerification } from "firebase/auth";
 
-const handleSaveClick = async (user: IAuthUser | null, newEmail: string | null, _newPassword: string | null, setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>, setSuccessMessage: React.Dispatch<React.SetStateAction<string | null>>) => {
+const handleSaveClick = async (user: IAuthUser | null, newEmail: string | null, setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>, setSuccessMessage: React.Dispatch<React.SetStateAction<string | null>>) => {
     if (!user) {
         setErrorMessage('Користувач не авторизований.');
         return;

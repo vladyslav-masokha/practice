@@ -5,7 +5,7 @@ import { EditFormProps } from "../props/EditFormProps.ts";
 
 const EditForm: React.FC<EditFormProps> = ({
     user, handleInputChange, handleSave, errorMessage,
-    successMessage, newEmail, setNewEmail, newPassword, setNewPassword,
+    successMessage, newEmail, setNewEmail
 }) => {
     return (
         <Box className={styles.editForm}>
@@ -25,15 +25,6 @@ const EditForm: React.FC<EditFormProps> = ({
                 fullWidth
                 margin="normal"
                 type="email"
-            />
-            <TextField
-                label="Пароль"
-                name="password"
-                value={newPassword}
-                onChange={(event) => setNewPassword(event.target.value)}
-                fullWidth
-                margin="normal"
-                type="password"
             />
             <Button
                 variant="contained"

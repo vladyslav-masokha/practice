@@ -9,8 +9,6 @@ interface EditFormProps {
     successMessage: string | null;
     newEmail: string;
     setNewEmail: React.Dispatch<React.SetStateAction<string>>;
-    newPassword: string;
-    setNewPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export type { EditFormProps };

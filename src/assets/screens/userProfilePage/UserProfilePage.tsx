@@ -15,7 +15,6 @@ const UserProfilePage = () => {
 
 	const { user, email: userEmail, setUser, setEmail } = useAuth();
 	const [newEmail, setNewEmail] = useState(user?.email || '');
-	const [newPassword, setNewPassword] = useState(user?.password || '');
 	const [isEditing, setIsEditing] = useState(false);
 	const [successMessage, setSuccessMessage] = useState<string | null>(null);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -31,7 +30,7 @@ const UserProfilePage = () => {
 
 	const handleSave = async () => {
 		try {
-			await handleSaveClick(user, newEmail, newPassword, setErrorMessage, setSuccessMessage);
+			await handleSaveClick(user, newEmail, setErrorMessage, setSuccessMessage);
 			if (!errorMessage) {
 				setIsEditing(false);
 			}
@@ -63,8 +62,6 @@ const UserProfilePage = () => {
 									successMessage={successMessage}
 									newEmail={newEmail}
 									setNewEmail={setNewEmail}
-									newPassword={newPassword}
-									setNewPassword={setNewPassword}
 								/>
 							) : (
 								<div className={styles.userBody}>

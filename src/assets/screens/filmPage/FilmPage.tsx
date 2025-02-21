@@ -31,8 +31,13 @@ const FilmPage = () => {
 								/>
 
 								<div className={styles.filmInfo}>
-									<h3 className={styles.title}>Назва: {film.title}</h3>
-									<p className={styles.year}>Рік: {film.year}</p>
+									<h3 className={styles.title}>{film.title}</h3>
+									<p className={styles.year}>Рік випуску: {film.year || "Немає даних"}</p>
+									<p className={styles.country}>Країна: {film.country || "Немає даних"}</p>
+									<p className={styles.duration}>Тривалість: {film.duration || "Немає даних"}</p>
+									<p className={styles.ageRating}>Вікове обмеження: {film.ageRating || "Немає даних"}</p>
+									<p className={styles.premiere}>Прем'єра: {film.premiere.USA || "Немає даних"} (США), {film.premiere.UKR || "Немає даних"} (Україна)</p>
+									<p className={styles.genre}>Жанр: {film.genre.join(", ")}</p>
 								</div>
 							</div>
 
