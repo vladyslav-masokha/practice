@@ -1,4 +1,5 @@
-import { Auth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import React from 'react'
+import { Auth, GoogleAuthProvider, OAuthProvider, signInWithPopup } from 'firebase/auth'
 
 interface handleUserNameChangeProps {setUserName: (userName: string) => void}
 interface handleEmailChangeProps {setEmail: (email: string) => void}
@@ -24,9 +25,15 @@ const handleGoogleSignIn = async (auth: Auth) => {
 	await signInWithPopup(auth, provider)
 }
 
+const handleAppleSignIn = async (auth: Auth) => {
+	const appleProvider = new OAuthProvider('apple.com');
+	await signInWithPopup(auth, appleProvider)
+}
+
 export {
 	handleEmailChange,
 	handleGoogleSignIn,
 	handlePasswordChange,
-	handleUserNameChange
+	handleUserNameChange,
+	handleAppleSignIn
 }

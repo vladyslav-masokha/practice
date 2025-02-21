@@ -26,7 +26,8 @@ const LoginErrorMessages = (
 			: errorCode === AuthErrorCodes.TOO_MANY_ATTEMPTS_TRY_LATER ||
       errorCode === 'auth/too-many-requests'
       ? 'Доступ до цього акаунта тимчасово вимкнено через численні невдалі спроби входу. Ви можете негайно відновити його, скинувши пароль, або спробувати пізніше!'
-			: errorMessage
+			: errorCode === 'auth/network-request-failed'
+		? 'Помилка мережі.' : errorMessage
 	)
 }
 
