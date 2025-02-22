@@ -35,7 +35,8 @@ const FilmPage = () => {
 									<p className={styles.year}>Рік випуску: {film.year || "Немає даних"}</p>
 									<p className={styles.country}>Країна: {film.country || "Немає даних"}</p>
 									<p className={styles.duration}>Тривалість: {film.duration || "Немає даних"}</p>
-									<p className={styles.ageRating}>Вікове обмеження: {film.ageRating || "Немає даних"}</p>
+									<p className={styles.ageRating}>Вікове
+										обмеження: {film.ageRating || "Немає даних"}</p>
 									<p className={styles.premiere}>Прем'єра: {film.premiere.USA || "Немає даних"} (США), {film.premiere.UKR || "Немає даних"} (Україна)</p>
 									<p className={styles.genre}>Жанр: {film.genre.join(", ")}</p>
 								</div>
@@ -43,9 +44,12 @@ const FilmPage = () => {
 
 							<p>{film.description}</p>
 
-							<iframe name="playerfr" id="playerfr" loading="lazy" scrolling="no"
-									src={film.link} frameBorder="0" width="100%" height="500px"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;"></iframe>
+							<iframe width="560" height="315"
+									src={film.link}
+									title="YouTube video player" frameBorder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									referrerPolicy="strict-origin-when-cross-origin"
+									allowFullScreen></iframe>
 						</div>
 					) : (
 						<p>
