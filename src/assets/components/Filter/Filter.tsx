@@ -14,14 +14,17 @@ const Filter: React.FC<FilterProps> = ({ films, setFilteredProducts }) => {
 	const [openFilter, setOpenFilter] = useState(false)
 	const [yearFilter, setYearFilter] = useState<[number, number] | null>(null)
 	const [genreFilter, setGenreFilter] = useState<string | null>(null);
+	const [ageFilter, setAgeFilter] = useState<string | null>(null);
 
 	const availableGenres = ["Фантастика", "Жахи", "Бойовик", "Пригоди", "Мелодрама", "Кримінал", "Екшн", "Драма", "Трилер", "Комедія", "Вестерн"];
+	const availableAgeRatings = ["12+", "16+", "18+"]
 
 	const applyFilters = useFilterLogic(
 		films,
 		setFilteredProducts,
 		yearFilter,
-		genreFilter
+		genreFilter,
+		ageFilter
 	)
 
 	const openFilterFunction = () => setOpenFilter(!openFilter)
@@ -42,8 +45,10 @@ const Filter: React.FC<FilterProps> = ({ films, setFilteredProducts }) => {
 					openFilterFunction={openFilterFunction}
 					setYearFilter={setYearFilter}
 					setGenreFilter={setGenreFilter}
+					setAgeFilter={setAgeFilter}
 					applyFilters={applyFilters}
 					availableGenres={availableGenres}
+					availableAgeRatings={availableAgeRatings}
 				/>
 			</div>
 		</div>

@@ -6,6 +6,7 @@ import styles from './HomePage.module.scss'
 import {HeaderTitle} from "../../ui/HeaderTitile/HeaderTitle.tsx";
 import {FilmsCards} from "../../components/FilmCards/FilmsCard.tsx";
 import {Filter} from "../../components/Filter/Filter.tsx";
+import {Ad} from "../../components/Ad/Ad";
 
 const HomePage = () => {
 	const [films, setFilms] = useState<Film[]>([])
@@ -25,10 +26,14 @@ const HomePage = () => {
 			<div className={styles.home}>
 				<div className='wrapper'>
 					<div className={styles.homeBody}>
-						<Filter
-							films={films}
-							setFilteredProducts={setFilteredProducts}
-						/>
+						<div className={styles.aside}>
+							<Filter
+								films={films}
+								setFilteredProducts={setFilteredProducts}
+							/>
+
+							<Ad />
+						</div>
 						<FilmsCards films={filteredProducts} />
 					</div>
 				</div>

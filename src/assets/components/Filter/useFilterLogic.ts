@@ -5,11 +5,11 @@ const useFilterLogic = (
 	films: Film[],
 	setFilteredProducts: Dispatch<SetStateAction<Film[]>>,
 	yearFilter: [number, number] | null,
-	genreFilter: string | null
+	genreFilter: string | null,
+	ageFilter: string | null
 ) => {
 	return useCallback(() => {
 		if (films.length === 0) return
-
 
 		let filteredProducts = films
 
@@ -24,12 +24,20 @@ const useFilterLogic = (
 				return product.genre.includes(genreFilter);
 			});
 		}
+
+		if (ageFilter !== null) {
+			filteredProducts = filteredProducts.filter(product => {
+				return product.ageRating === ageFilter;
+			});
+		}
+
 		setFilteredProducts(filteredProducts)
 	}, [
 		films,
 		setFilteredProducts,
 		yearFilter,
 		genreFilter,
+		ageFilter,
 	])
 }
 

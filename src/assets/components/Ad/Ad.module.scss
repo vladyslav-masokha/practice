@@ -1,0 +1,16 @@
+.ad {
+  display: none;
+  gap: 15px;
+
+  img {
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .ad {
+    display: flex;
+    flex-direction: column;
+  }
+}
