@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import { Film } from '../IFilm.ts'
-import styles from './filmCard.module.scss'
+import { Film } from '../../../interfaces/IFilm.ts'
+import styles from '../FilmCards.module.scss'
 
 const FilmCard: React.FC<{ films: Film[] }> = ({ films }) => {
 	return (

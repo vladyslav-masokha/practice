@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
-import { Film } from '../../components/IFilm.ts'
 import { Footer } from '../../ui/footer/Footer'
-import { useFetchDataFilms } from '../../logics/useFetchDataFilms.ts'
+import { useFetchData } from '../../globalLogics/useFetchData.ts'
 import styles from './HomePage.module.scss'
-import {HeaderTitle} from "../../ui/HeaderTitile/HeaderTitle.tsx";
-import {FilmsCards} from "../../components/FilmCards/FilmsCard.tsx";
-import {Filter} from "../../components/Filter/Filter.tsx";
-import {Ad} from "../../components/Ad/Ad";
+import { HeaderTitle } from "../../ui/HeaderTitile/HeaderTitle.tsx";
+import { FilmsCards } from "../../components/FilmCards/FilmCards.tsx";
+import { Filter } from "../../components/Filter/Filter.tsx";
+import { Ad } from "../../components/Ad/Ad";
+import { IFilm } from "../../interfaces/IFilm.ts";
 
 const HomePage = () => {
-	const [films, setFilms] = useState<Film[]>([])
-	const [filteredProducts, setFilteredProducts] = useState<Film[]>([])
+	const [films, setFilms] = useState<IFilm[]>([])
+	const [filteredProducts, setFilteredProducts] = useState<IFilm[]>([])
 	const animalsData = './films.json'
-	const data = useFetchDataFilms(animalsData)
+	const data: IFilm[] = useFetchData(animalsData)
 
 	useEffect(() => {
 		setFilms(data)

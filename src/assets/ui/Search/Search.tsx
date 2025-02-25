@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useFetchDataFilms } from '../../logics/useFetchDataFilms.ts'
-import { Film } from '../../components/IFilm.ts'
+import { useFetchData } from '../../globalLogics/useFetchData.ts'
+import { IFilm } from '../../interfaces/IFilm.ts'
 import styles from './Search.module.scss';
 import {Link} from "react-router-dom"; // Імпортуємо файл стилів
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const films = useFetchDataFilms('/films.json');
-    const [filteredFilms, setFilteredFilms] = useState<Film[]>([]);
+    const films: IFilm[] = useFetchData('/films.json');
+    const [filteredFilms, setFilteredFilms] = useState<IFilm[]>([]);
 
     useEffect(() => {
         if (films) {

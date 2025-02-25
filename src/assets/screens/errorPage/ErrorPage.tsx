@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useTitleLogic } from '../../logics/titleLogic.tsx'
+import { useTitleLogic } from '../../globalLogics/useTitleLogic.tsx'
 import styles from './ErrorPage.module.scss'
 
 const ErrorPage = () => {

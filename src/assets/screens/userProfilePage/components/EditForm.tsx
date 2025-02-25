@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField, Button, Box, Alert } from '@mui/material';
 import styles from '../UserProfile.module.scss';
 import { EditFormProps } from "../props/EditFormProps.ts";
+import { InputStyles } from "../styles/InputStyles.ts";
 
 const EditForm: React.FC<EditFormProps> = ({
     user, handleInputChange, handleSave, errorMessage,
@@ -16,15 +17,18 @@ const EditForm: React.FC<EditFormProps> = ({
                 onChange={handleInputChange}
                 fullWidth
                 margin="normal"
+                sx={InputStyles}
             />
             <TextField
                 label="Пошта"
                 name="email"
                 value={newEmail}
                 onChange={(event) => setNewEmail(event.target.value)}
+                placeholder={newEmail || 'Пошта'}
                 fullWidth
                 margin="normal"
                 type="email"
+                sx={InputStyles}
             />
             <Button
                 variant="contained"

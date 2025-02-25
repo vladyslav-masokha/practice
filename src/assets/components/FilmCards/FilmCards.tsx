@@ -1,7 +1,7 @@
 import React from "react";
-import { Film } from '../IFilm.ts'
-import { FilmCard } from './FilmCard.tsx'
-import styles from './filmCard.module.scss'
+import { Film } from '../../interfaces/IFilm.ts'
+import { FilmCard } from './components/FilmCard.tsx'
+import styles from './FilmCards.module.scss'
 
 const FilmsCards: React.FC<{ films: Film[] }> = ({ films }) => {
 	return (

@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { valueLabelFormatYear } from '../../../logics/valueLabelFormatYear.ts'
+import { valueLabelFormatYear } from '../../../globalLogics/valueLabelFormatYear.ts'
 import styles from '../Filter.module.scss'
 import { sliderStyle as Slider } from '../styles/sliderStyle'
 
@@ -46,7 +46,7 @@ const YearFilter: React.FC<YearProps> = ({ setYearFilter, applyFilters }) => {
 				max={MAX_YEAR}
 			/>
 
-			<div className={styles.filterAgeInputs}>
+			<div className={styles.filterYearInputs}>
 				<TextField
 					placeholder={MIN_YEAR.toString()}
 					value={yearRange[0]}

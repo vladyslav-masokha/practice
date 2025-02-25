@@ -1,5 +1,9 @@
 .errorPage {
-	margin: auto;
+	position: absolute;
+	width: 100%;
+
+	top: 40%;
+	left: 0;
 	text-align: center;
 
 	.errorMessage {

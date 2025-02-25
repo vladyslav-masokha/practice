@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react'
-
-interface useTitleLogicProps {
-	namePage: string
-	id: number | null
-}
+import { useTitleLogicProps } from './props/useTitleLogicProps'
 
 const useTitleLogic: React.FC<useTitleLogicProps> = ({ namePage, id }) => {
 	useEffect(() => {

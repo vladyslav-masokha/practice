@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useTitleLogic } from '../../logics/titleLogic.tsx';
+import { useTitleLogic } from '../../globalLogics/useTitleLogic.tsx';
 import { Header } from '../../ui/Header/Header';
 import { Footer } from '../../ui/footer/Footer';
 import styles from './UserProfile.module.scss';
 import { useAuth } from './hooks/useAuth.ts';
-import { handleEditClick, handleChange } from './hooks/userProfileLogic.ts'; // Видалили handleImageChange
+import { handleEditClick, handleChange } from './hooks/userProfileLogic.ts';
 import { handleSaveClick } from './hooks/handleSaveClick.ts';
 import { EditForm } from "./components/EditForm.tsx";
 import { ErrorPage } from "../errorPage/ErrorPage.tsx";
-import Avatar from 'react-avatar'; // Імпортуємо react-avatar
+import Avatar from 'react-avatar';
 
 const UserProfilePage = () => {
 	useTitleLogic({ namePage: 'Профіль', id: null });

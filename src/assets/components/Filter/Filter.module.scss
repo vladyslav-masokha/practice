@@ -42,8 +42,7 @@
 			left: 15px;
 		}
 
-		.filterYear,
-		.filterWeight {
+		.filterYear {
 			margin: 50px 15px 0;
 			color: var(--global-light);
 
@@ -51,8 +50,7 @@
 				margin: 0;
 			}
 
-			.filterAgeInputs,
-			.filterWeightInputs {
+			.filterYearInputs {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -73,8 +71,7 @@
 		}
 
 		.filterGenre,
-		.filterSize,
-		.filterType {
+		.filterAge {
 			margin: 30px 15px 0;
 			color: var(--global-light);
 
@@ -91,7 +88,6 @@
 
 @media screen and (min-width: 1024px) {
 	.filter {
-		//width: 30%;
 		margin: 30px 0;
 
 		.filterBody {

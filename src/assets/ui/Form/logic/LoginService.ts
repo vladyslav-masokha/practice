@@ -10,23 +10,23 @@ const handleLogin = (
 	setPassword: SetState<string>,
 	setSuccessMessage: SetState<string | null>,
 	setErrorMessage: SetState<string | null>
-): Promise<void> => {  // Return a Promise<void>
+): Promise<void> => {
 	return new Promise<void>((resolve, reject) => { // Create a new Promise
 		const auth = getAuth();
 
-		setErrorMessage(null); // Clear previous error message
+		setErrorMessage(null);
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then(() => {
 				setSuccessMessage('Авторизація пройшла успішно!');
 				setEmail('');
 				setPassword('');
-				resolve(); // Resolve the Promise on success
+				resolve();
 			})
-			.catch((error: AuthError) => { // Use 'any' or a more specific error type if available
+			.catch((error: AuthError) => {
 				const { code, message } = error;
 				LoginErrorMessages(setErrorMessage, code, message);
-				reject(error); // Reject the Promise on error
+				reject(error);
 			});
 	});
 };

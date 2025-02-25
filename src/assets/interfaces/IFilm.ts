@@ -1,4 +1,4 @@
-interface Film {
+interface IFilm {
 	imdbID: string
 	title: string
 	year: number
@@ -15,4 +15,4 @@ interface Film {
 	link: string
 }
 
-export type { Film }
+export type { IFilm }

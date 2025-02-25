@@ -1,15 +1,17 @@
 import { useParams } from 'react-router-dom'
-import { useTitleLogic } from '../../logics/titleLogic.tsx'
+import { useTitleLogic } from '../../globalLogics/useTitleLogic.tsx'
 import { Header } from '../../ui/Header/Header'
 import { Footer } from '../../ui/footer/Footer'
-import { useFetchDataFilms } from '../../logics/useFetchDataFilms.ts'
+import { useFetchData } from '../../globalLogics/useFetchData.ts'
 import styles from './FilmPage.module.scss'
+import { IFilm } from "../../interfaces/IFilm.ts";
+import {ErrorPage} from "../errorPage/ErrorPage.tsx";
 
 const FilmPage = () => {
 	const { id } = useParams<{ id: string }>()
 	const filmsData = './films.json'
 
-	const data = useFetchDataFilms(filmsData)
+	const data: IFilm[] = useFetchData(filmsData)
 	const film = data.find(film => film.imdbID === id)
 
 	useTitleLogic({ namePage: film ? film.title : '', id: +id })
@@ -52,9 +54,7 @@ const FilmPage = () => {
 									allowFullScreen></iframe>
 						</div>
 					) : (
-						<p>
-							Фільм з id <b>{id}</b> не знайдено
-						</p>
+						<ErrorPage />
 					)}
 				</div>
 			</div>

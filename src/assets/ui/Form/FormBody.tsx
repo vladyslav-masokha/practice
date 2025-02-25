@@ -1,64 +1,34 @@
-import React, {useState} from 'react'
-import {IconButton, InputAdornment, TextField} from '@mui/material'
+import React, { useState } from 'react'
 import styles from './Form.module.scss'
-import { handleEmailBlur } from './handleBlurLogic/HandleEmailBlur'
+import { IconButton, InputAdornment, TextField } from '@mui/material'
 import { handlePasswordBlur } from './handleBlurLogic/HandlePasswordBlur'
-import { helperTextEmailLogic } from './helperLogic/HelperTextEmailLogic'
 import { HelperTextPasswordLogic } from './helperLogic/HelperTextPasswordLogic'
 import { handleEmailChange, handlePasswordChange } from './logic/AuthLogic'
-import {Visibility, VisibilityOff } from '@mui/icons-material';
-
-interface FormBodyProps {
-	email: string
-	password: string
-	setEmail: (email: string) => void
-	setPassword: (password: string) => void
-	isEmailValid: boolean
-	isPasswordValid: boolean
-	setIsEmailValid: (email: boolean) => void
-	setIsPasswordValid: (password: boolean) => void
-}
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { FormBodyProps } from "./props/FormBodyProps.ts";
+import { EmailField } from "./components/EmailField.tsx";
 
 const FormBody: React.FC<FormBodyProps> = ({
-	email,
-	password,
-	setEmail,
-	setPassword,
-	isEmailValid,
-	isPasswordValid,
-	setIsEmailValid,
-	setIsPasswordValid,
+	email, password, setEmail,
+	setPassword, isEmailValid, isPasswordValid,
+	setIsEmailValid, setIsPasswordValid,
 }) => {
+	const [showPassword, setShowPassword] = useState(false);
+
 	const handleEmailInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
 		handleEmailChange(e, { setEmail })
 
 	const handlePasswordInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
 		handlePasswordChange(e, { setPassword })
 
-	const [showPassword, setShowPassword] = useState(false);
-
-	const handleClickShowPassword = () => {
-		setShowPassword(!showPassword);
-	};
-
-	const handleMouseDownPassword = (event: { preventDefault: () => void }) => {
-		event.preventDefault();
-	};
+	const handleClickShowPassword = () => setShowPassword(!showPassword);
+	const handleMouseDownPassword = (event: { preventDefault: () => void }) => event.preventDefault();
 
 	return (
 		<div className={styles.formFlex}>
-			<TextField
-				required
-				type='email'
-				id='outlined-basic'
-				label='Електрона пошта'
-				variant='outlined'
-				value={email}
-				error={!isEmailValid}
-				helperText={helperTextEmailLogic(isEmailValid)}
-				onChange={handleEmailInputChange}
-				onBlur={() => handleEmailBlur(email, setIsEmailValid)}
-			/>
+			<EmailField
+				email={email} isEmailValid={isEmailValid}
+				setIsEmailValid={setIsEmailValid} handleEmailInputChange={handleEmailInputChange} />
 
 			<TextField
 				required

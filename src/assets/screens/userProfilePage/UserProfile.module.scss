@@ -8,67 +8,60 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 15px;
+
+    .userImg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .userInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .editButton {
+      background-color: var(--global-red);
+      color: var(--global-light);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--global-dark-red);
+      }
+    }
   }
-}
 
-.userImg {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .editForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
-.userInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+    input {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid var(--global-light);
+      color: var(--global-light);
+      border-radius: 5px;
+      outline: none;
+    }
 
-.profileImage {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%; /* Круглий аватар */
-  margin-right: 20px;
-}
+    button {
+      background-color: var(--global-red);
+      color: var(--global-light);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
 
-.editButton {
-  background-color: #ff0000; /* Червона кнопка */
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Плавний перехід кольору */
-}
-
-.editButton:hover {
-  background-color: #cc0000; /* Затемнений червоний колір */
-}
-
-.editForm {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.editForm input {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid var(--global-light);
-  color: var(--global-light);
-  border-radius: 5px;
-  outline: none;
-}
-
-.editForm button {
-  background-color: #ff0000;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.editForm button:hover {
-  background-color: #cc0000;
+      &:hover {
+        background-color: var(--global-dark-red);
+      }
+    }
+  }
 }
