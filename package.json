@@ -27,7 +27,8 @@
 		"react-firebase-hooks": "^5.1.1",
 		"react-router-dom": "^5.3.3",
 		"sass": "^1.70.0",
-		"sqlite3": "^5.1.6"
+		"sqlite3": "^5.1.6",
+		"uuid": "^11.1.0"
 	},
 	"devDependencies": {
 		"@types/cors": "^2.8.13",
