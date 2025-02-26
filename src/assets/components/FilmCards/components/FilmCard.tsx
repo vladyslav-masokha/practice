@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import { Film } from '../../../interfaces/IFilm.ts'
+import { IFilm } from '../../../interfaces/IFilm.ts'
 import styles from '../FilmCards.module.scss'
+import { ErrorPage } from "../../../screens/errorPage/ErrorPage.tsx";
 
-const FilmCard: React.FC<{ films: Film[] }> = ({ films }) => {
+const FilmCard: React.FC<{ data: IFilm[] }> = ({ data }) => {
 	return (
 		<>
-			{films.length > 0 ? (
-				films.map(film => (
+			{data.length > 0 ? (
+				data.map(film => (
 					<Link to={`/${film.imdbID}`} className={styles.card} key={film.imdbID}>
 						<img
 							className={styles.cardImage}
@@ -23,7 +24,7 @@ const FilmCard: React.FC<{ films: Film[] }> = ({ films }) => {
 					</Link>
 				))
 			) : (
-				<p className={styles.not_films}>Фільми не знайдені!</p>
+				<ErrorPage />
 			)}
 		</>
 	)

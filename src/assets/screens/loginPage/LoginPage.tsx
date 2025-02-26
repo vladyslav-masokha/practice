@@ -1,10 +1,8 @@
 import { Typography } from '@mui/material'
 import { getAuth } from 'firebase/auth'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useHistory } from 'react-router-dom'
 import { MessagesLogic } from '../../globalLogics/messagesLogic.tsx'
-import { redirectAfterTimeoutLogic } from '../../globalLogics/redirectAfterTimeoutLogic.ts'
 import { useTitleLogic } from '../../globalLogics/useTitleLogic.tsx'
 import styles from '../../ui/Form/Form.module.scss'
 import { FormBody } from '../../ui/Form/FormBody'
@@ -13,9 +11,9 @@ import { AuthBtnLogin } from '../../ui/Form/buttons/AuthBtnLogin'
 import { SignInWithGoogle } from '../../ui/Form/buttons/AuthBtnSignInWithGoogle'
 import { handleLogin } from '../../ui/Form/logic/LoginService'
 import { HomeButton } from "../../ui/HomeButton/HomeButton.tsx";
+import {AuthEffects} from "../../ui/Form/components/AuthEffects.tsx";
 
 const LoginPage = () => {
-	const history = useHistory()
 	const auth = getAuth()
 	const [user] = useAuthState(auth)
 	const [email, setEmail] = useState<string>('')
@@ -32,18 +30,6 @@ const LoginPage = () => {
 			email, password, setEmail,
 			setPassword, setSuccessMessage, setErrorMessage
 		)
-
-	useEffect(() => {
-		setErrorMessage(null);
-		setSuccessMessage(null);
-	}, [email, password]);
-
-	useEffect(() => {
-		if (user) {
-			setSuccessMessage("Ви успішно увійшли!");
-			redirectAfterTimeoutLogic({ user, history })
-		}
-	}, [user, history]);
 
 	const messageProps = { successMessage, errorMessage }
 	const btnLoginProps = { handleLoginClick, isEmailValid, isPasswordValid }
@@ -66,6 +52,12 @@ const LoginPage = () => {
 					<SignInWithGoogle auth={auth} />
 
 					<HomeButton	/>
+
+					<AuthEffects
+						email={email} password={password}
+						user={user} setErrorMessage={setErrorMessage}
+						setSuccessMessage={setSuccessMessage}
+					/>
 				</div>
 			</div>
 		</form>

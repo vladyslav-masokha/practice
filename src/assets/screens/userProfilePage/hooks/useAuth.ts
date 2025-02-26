@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import {IAuthUser} from "./IAuthUser.ts";
+import { IAuthUser } from "./IAuthUser.ts";
 
 const useAuth = () => {
     const auth = getAuth();
@@ -14,6 +14,7 @@ const useAuth = () => {
                     uid: authUser.uid,
                     displayName: authUser.displayName,
                     email: authUser.email,
+                    photoURL: authUser.photoURL
                 });
                 setEmail(authUser.email || '');
             } else {

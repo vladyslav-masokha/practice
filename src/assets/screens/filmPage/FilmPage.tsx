@@ -2,19 +2,21 @@ import { useParams } from 'react-router-dom'
 import { useTitleLogic } from '../../globalLogics/useTitleLogic.tsx'
 import { Header } from '../../ui/Header/Header'
 import { Footer } from '../../ui/footer/Footer'
-import { useFetchData } from '../../globalLogics/useFetchData.ts'
 import styles from './FilmPage.module.scss'
-import { IFilm } from "../../interfaces/IFilm.ts";
-import {ErrorPage} from "../errorPage/ErrorPage.tsx";
+import {IFilm} from "../../interfaces/IFilm.ts";
+import { useFetchData } from "../../globalLogics/useFetchData.ts";
+import { HelpMessage } from "../../components/HelpMessage/HelpMessage.tsx";
 
 const FilmPage = () => {
-	const { id } = useParams<{ id: string }>()
-	const filmsData = './films.json'
+	const { id } = useParams<{ id: string }>();
+	const filmsDBUrl = `http://localhost:3001/api/films/${id}`;
+	const { data, loading, error } = useFetchData<IFilm>(filmsDBUrl);
 
-	const data: IFilm[] = useFetchData(filmsData)
-	const film = data.find(film => film.imdbID === id)
+	useTitleLogic({ namePage: data ? data.title : 'Помилка', id: id ? +id : null });
 
-	useTitleLogic({ namePage: film ? film.title : '', id: +id })
+	if (loading) return <HelpMessage message={'Завантаження..'} status='loading' />;
+	if (error) return <HelpMessage message={error} status='loading' />;
+	if (!data) return <div>Дані не знайдено!</div>;
 
 	return (
 		<>
@@ -22,40 +24,54 @@ const FilmPage = () => {
 
 			<div className={styles.filmPage}>
 				<div className='wrapper'>
-					{film ? (
-						<div className={styles.film}>
-							<div className={styles.filmBody}>
-								<img
-									className={styles.cardImage}
-									src={film.img}
-									alt={film.title}
-									loading='lazy'
-								/>
+					<div className={styles.film}>
+						<div className={styles.filmBody}>
+							<img
+								className={styles.cardImage}
+								src={data.img}
+								alt={data.title}
+								loading='lazy'
+							/>
 
-								<div className={styles.filmInfo}>
-									<h3 className={styles.title}>{film.title}</h3>
-									<p className={styles.year}>Рік випуску: {film.year || "Немає даних"}</p>
-									<p className={styles.country}>Країна: {film.country || "Немає даних"}</p>
-									<p className={styles.duration}>Тривалість: {film.duration || "Немає даних"}</p>
-									<p className={styles.ageRating}>Вікове
-										обмеження: {film.ageRating || "Немає даних"}</p>
-									<p className={styles.premiere}>Прем'єра: {film.premiere.USA || "Немає даних"} (США), {film.premiere.UKR || "Немає даних"} (Україна)</p>
-									<p className={styles.genre}>Жанр: {film.genre.join(", ")}</p>
-								</div>
+							<div className={styles.filmInfo}>
+								<h3 className={styles.title}>{data.title}</h3>
+								<p className={styles.year}>Рік випуску: {data.year || "Немає даних"}</p>
+								<p className={styles.country}>Країна: {data.country || "Немає даних"}</p>
+								<p className={styles.duration}>Тривалість: {data.duration || "Немає даних"}</p>
+								<p className={styles.ageRating}>Вікове
+									обмеження: {data.ageRating || "Немає даних"}</p>
+								{data.premiere && data.premiere.length > 0 && (
+									<div>
+										<h3>Premieres:</h3>
+										<ul>
+											{data.premiere.map((p) => (
+												<li key={p.country}>{p.country}: {p.date}</li>
+											))}
+										</ul>
+									</div>
+								)}
+								{data.genre && data.genre.length > 0 && (
+									<div>
+										<h3>Genres:</h3>
+										<ul>
+											{data.genre.map((g) => (
+												<li key={g}>{g}</li>
+											))}
+										</ul>
+									</div>
+								)}
 							</div>
-
-							<p>{film.description}</p>
-
-							<iframe width="560" height="315"
-									src={film.link}
-									title="YouTube video player" frameBorder="0"
-									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-									referrerPolicy="strict-origin-when-cross-origin"
-									allowFullScreen></iframe>
 						</div>
-					) : (
-						<ErrorPage />
-					)}
+
+						<p>{data.description}</p>
+
+						<iframe width="560" height="315"
+								src={data.link}
+								title="YouTube video player" frameBorder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								referrerPolicy="strict-origin-when-cross-origin"
+								allowFullScreen></iframe>
+					</div>
 				</div>
 			</div>
 

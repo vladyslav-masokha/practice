@@ -1,14 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react';
 
-const useFetchData = <T> (url: string) => {
-    const [data, setData] = useState<T[]>([])
+const useFetchData = <T>(url: string): { data: T | null; loading: boolean; error: string | null } => {
+    const [data, setData] = useState<T | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setData(data))
-            .catch(error => console.error('Помилка отримання данних:', error));
-    }, [url]);
-    return data;
-}
+        setLoading(true);
+        setError(null);
 
-export { useFetchData }
+        fetch(url)
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                return res.json();
+            })
+            .then(data => {
+                setData(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                setError('Помилка при отриманні даних: ' + err.message);
+                setLoading(false);
+            });
+    }, [url]);
+
+    return { data, loading, error };
+};
+
+export { useFetchData };

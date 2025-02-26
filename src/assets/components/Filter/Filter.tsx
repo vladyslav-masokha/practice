@@ -7,14 +7,14 @@ import { FilterProps } from "./props/FilterProps.ts";
 import { availableGenres } from "./availables/availableGenres.ts";
 import { availableAgeRatings } from "./availables/availableAgeRatings.ts";
 
-const Filter: React.FC<FilterProps> = ({ films, setFilteredProducts }) => {
+const Filter: React.FC<FilterProps> = ({ data, setFilteredProducts }) => {
 	const [openFilter, setOpenFilter] = useState(false)
 	const [yearFilter, setYearFilter] = useState<[number, number] | null>(null)
 	const [genreFilter, setGenreFilter] = useState<string | null>(null);
 	const [ageFilter, setAgeFilter] = useState<string | null>(null);
 
 	const applyFilters = useFilterLogic(
-		films, setFilteredProducts, yearFilter,
+		data, setFilteredProducts, yearFilter,
 		genreFilter, ageFilter
 	)
 

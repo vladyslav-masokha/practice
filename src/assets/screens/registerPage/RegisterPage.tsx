@@ -2,9 +2,7 @@ import { TextField, Typography } from '@mui/material'
 import { getAuth } from 'firebase/auth'
 import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useHistory } from 'react-router-dom'
 import { MessagesLogic } from '../../globalLogics/messagesLogic.tsx'
-import { redirectAfterTimeoutLogic } from '../../globalLogics/redirectAfterTimeoutLogic.ts'
 import { useTitleLogic } from '../../globalLogics/useTitleLogic.tsx'
 import styles from '../../ui/Form/Form.module.scss'
 import { FormBody } from '../../ui/Form/FormBody'
@@ -15,55 +13,38 @@ import { helperTextUserNameLogic } from '../../ui/Form/helperLogic/HelperTextUse
 import { handleUserNameChange } from '../../ui/Form/logic/AuthLogic'
 import { handleRegister } from '../../ui/Form/logic/RegisterService'
 import {HomeButton} from "../../ui/HomeButton/HomeButton.tsx";
+import {AuthEffects} from "../../ui/Form/components/AuthEffects.tsx";
 
 const RegisterPage = () => {
-	const history = useHistory()
 	const auth = getAuth()
 	const [user] = useAuthState(auth)
 	const [userName, setUserName] = useState<string>('')
 	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
-
 	const [successMessage, setSuccessMessage] = useState<string | null>(null)
 	const [errorMessage, setErrorMessage] = useState<string | null>(null)
-
 	const [isUserNameValid, setIsUserNameValid] = useState<boolean>(true)
 	const [isEmailValid, setIsEmailValid] = useState<boolean>(true)
 	const [isPasswordValid, setIsPasswordValid] = useState<boolean>(true)
 
 	useTitleLogic({ namePage: 'Реєстрація', id: null })
-	redirectAfterTimeoutLogic({ user, history })
 
 	const handleRegisterClick = () =>
 		handleRegister(
-			userName,
-			email,
-			password,
-			setUserName,
-			setEmail,
-			setPassword,
-			setSuccessMessage,
-			setErrorMessage
+			userName, email, password, setUserName,
+			setEmail, setPassword, setSuccessMessage, setErrorMessage
 		)
 
 	const messageProps = { successMessage, errorMessage }
 	const btnRegisterProps = {
-		handleRegisterClick,
-		isUserNameValid,
-		isEmailValid,
-		isPasswordValid,
+		handleRegisterClick, isUserNameValid,
+		isEmailValid, isPasswordValid,
 	}
 
 	const formProps = {
-		email,
-		password,
-		setEmail,
-		setPassword,
-		isUserNameValid,
-		isEmailValid,
-		isPasswordValid,
-		setIsEmailValid,
-		setIsPasswordValid,
+		email, password, setEmail,
+		setPassword, isUserNameValid, isEmailValid,
+		isPasswordValid, setIsEmailValid, setIsPasswordValid,
 	}
 
 	return (
@@ -92,6 +73,14 @@ const RegisterPage = () => {
 					<SignInWithGoogle auth={auth} />
 
 					<HomeButton />
+
+					<AuthEffects
+						email={email}
+						password={password}
+						user={user}
+						setErrorMessage={setErrorMessage}
+						setSuccessMessage={setSuccessMessage}
+					/>
 				</div>
 			</div>
 		</form>

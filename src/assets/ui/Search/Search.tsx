@@ -2,25 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { useFetchData } from '../../globalLogics/useFetchData.ts'
 import { IFilm } from '../../interfaces/IFilm.ts'
 import styles from './Search.module.scss';
-import {Link} from "react-router-dom"; // Імпортуємо файл стилів
+import {Link} from "react-router-dom";
+import {HelpMessage} from "../../components/HelpMessage/HelpMessage.tsx"; // Імпортуємо файл стилів
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const films: IFilm[] = useFetchData('/films.json');
     const [filteredFilms, setFilteredFilms] = useState<IFilm[]>([]);
+    const filmsDBUrl = 'http://localhost:3001/api/films/';
+    const { data, loading, error } = useFetchData<IFilm>(filmsDBUrl);
 
     useEffect(() => {
-        if (films) {
-            const filtered = films.filter((film: { title: string; }) =>
-                film.title.toLowerCase().includes(searchTerm.toLowerCase())
+        if (data && Array.isArray(data)) {
+            const filtered = data.filter((film) =>
+                film.title.toLowerCase().startsWith(searchTerm.toLowerCase())
             );
             setFilteredFilms(filtered);
         }
-    }, [searchTerm, films]);
+    }, [searchTerm, data]);
 
     const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setSearchTerm(event.target.value);
     };
+
+    if (loading) return <HelpMessage message={'Завантаження..'} status='loading' />;
+    if (error) return <HelpMessage message={error} status='loading' />;
+    if (!data) return <div>Дані не знайдено!</div>;
 
     return (
         <div className={styles.searchContainer}>

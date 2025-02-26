@@ -1,9 +1,9 @@
-import {Film} from "../../../interfaces/IFilm.ts";
+import { IFilm } from "../../../interfaces/IFilm.ts";
 import {Dispatch, SetStateAction} from "react";
 
 interface FilterProps {
-    films: Film[]
-    setFilteredProducts: Dispatch<SetStateAction<Film[]>>
+    data: IFilm[]
+    setFilteredProducts: Dispatch<SetStateAction<IFilm[]>>
 }
 
 export type { FilterProps }

@@ -7,8 +7,8 @@ import { useAuth } from './hooks/useAuth.ts';
 import { handleEditClick, handleChange } from './hooks/userProfileLogic.ts';
 import { handleSaveClick } from './hooks/handleSaveClick.ts';
 import { EditForm } from "./components/EditForm.tsx";
-import { ErrorPage } from "../errorPage/ErrorPage.tsx";
 import Avatar from 'react-avatar';
+import {ErrorPage} from "../errorPage/ErrorPage.tsx";
 
 const UserProfilePage = () => {
 	useTitleLogic({ namePage: 'Профіль', id: null });
@@ -22,18 +22,14 @@ const UserProfilePage = () => {
 
 	useEffect(() => {
 		if (user && userEmail) setEmail(userEmail);
-		if (user) {
-			setNewEmail(user.email || '');
-		}
+		if (user) setNewEmail(user.email || '');
 	}, [setEmail, user, userEmail]);
 
 
 	const handleSave = async () => {
 		try {
 			await handleSaveClick(user, newEmail, setErrorMessage, setSuccessMessage);
-			if (!errorMessage) {
-				setIsEditing(false);
-			}
+			if (!errorMessage) setIsEditing(false);
 		} catch (error) {
 			console.error("Помилка збереження профілю:", error);
 			setErrorMessage("Помилка збереження профілю. Спробуйте пізніше!.");
@@ -43,7 +39,6 @@ const UserProfilePage = () => {
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		handleChange(event, user, setUser);
 	};
-
 
 	return (
 		<>
@@ -66,11 +61,15 @@ const UserProfilePage = () => {
 							) : (
 								<div className={styles.userBody}>
 									<div className={styles.userImg}>
-										<Avatar
+										{user.photoURL ? (
+											<img loading='lazy' src={user.photoURL} alt={user.displayName || 'User photo'} />
+										) : (
+											<Avatar
 											name={user.displayName || user.email || ''}
 											size="100"
 											round={true}
 										/>
+										)}
 										<h2>{user.displayName}</h2>
 									</div>
 

@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction, useCallback } from 'react'
-import { Film } from '../../../interfaces/IFilm.ts'
+import { IFilm } from '../../../interfaces/IFilm.ts'
 
 const useFilterLogic = (
-	films: Film[],
-	setFilteredProducts: Dispatch<SetStateAction<Film[]>>,
+	films: IFilm[],
+	setFilteredProducts: Dispatch<SetStateAction<IFilm[]>>,
 	yearFilter: [number, number] | null,
 	genreFilter: string | null,
 	ageFilter: string | null

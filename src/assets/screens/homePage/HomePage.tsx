@@ -1,23 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Footer } from '../../ui/footer/Footer'
-import { useFetchData } from '../../globalLogics/useFetchData.ts'
 import styles from './HomePage.module.scss'
 import { HeaderTitle } from "../../ui/HeaderTitile/HeaderTitle.tsx";
 import { FilmsCards } from "../../components/FilmCards/FilmCards.tsx";
 import { Filter } from "../../components/Filter/Filter.tsx";
 import { Ad } from "../../components/Ad/Ad";
 import { IFilm } from "../../interfaces/IFilm.ts";
+import { useFetchData } from "../../globalLogics/useFetchData.ts";
+import { HelpMessage } from "../../components/HelpMessage/HelpMessage.tsx";
 
 const HomePage = () => {
-	const [films, setFilms] = useState<IFilm[]>([])
-	const [filteredProducts, setFilteredProducts] = useState<IFilm[]>([])
-	const animalsData = './films.json'
-	const data: IFilm[] = useFetchData(animalsData)
+	const filmsDBUrl = 'http://localhost:3001/api/films';
+	const { data, loading, error } = useFetchData<IFilm[]>(filmsDBUrl);
 
-	useEffect(() => {
-		setFilms(data)
-		setFilteredProducts(data)
-	}, [data])
+	const [filteredProducts, setFilteredProducts] = useState<IFilm[]>([])
+
+	if (loading) return <HelpMessage message={'Завантаження..'} status='loading' />;
+	if (error) return <HelpMessage message={error} status='loading' />;
+	if (!data) return <div>Дані не знайдено!</div>;
 
 	return (
 		<>
@@ -28,13 +28,13 @@ const HomePage = () => {
 					<div className={styles.homeBody}>
 						<div className={styles.aside}>
 							<Filter
-								films={films}
+								data={data}
 								setFilteredProducts={setFilteredProducts}
 							/>
 
 							<Ad />
 						</div>
-						<FilmsCards films={filteredProducts} />
+						<FilmsCards data={filteredProducts} />
 					</div>
 				</div>
 			</div>
@@ -44,4 +44,4 @@ const HomePage = () => {
 	)
 }
 
-export { HomePage }
+export { HomePage };
