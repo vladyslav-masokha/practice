@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { AboutPage } from './assets/screens/aboutPage/AboutPage.tsx'
 import { FilmPage } from './assets/screens/filmPage/FilmPage.tsx'
-import { ErrorPage } from './assets/screens/errorPage/ErrorPage.tsx'
 import { HomePage } from './assets/screens/homePage/HomePage.tsx'
 import { LoginPage } from './assets/screens/loginPage/LoginPage.tsx'
 import { RegisterPage } from './assets/screens/registerPage/RegisterPage.tsx'
@@ -23,7 +22,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 				<Route exact path='/register' component={RegisterPage} />
 				<Route exact path='/reset' component={ResetPasswordPage} />
 				<Route path='/:id' component={FilmPage} />
-				<Route path='*' component={ErrorPage} />
 			</Switch>
 		</BrowserRouter>
 	</React.StrictMode>

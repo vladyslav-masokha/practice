@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import { IFilm } from '../../../interfaces/IFilm.ts'
 import styles from '../FilmCards.module.scss'
-import { ErrorPage } from "../../../screens/errorPage/ErrorPage.tsx";
+import {HelpMessage} from "../../HelpMessage/HelpMessage.tsx";
 
 const FilmCard: React.FC<{ data: IFilm[] }> = ({ data }) => {
 	return (
@@ -24,7 +24,7 @@ const FilmCard: React.FC<{ data: IFilm[] }> = ({ data }) => {
 					</Link>
 				))
 			) : (
-				<ErrorPage />
+				<HelpMessage message={'Фільм не знайдено!'} status='error'/>
 			)}
 		</>
 	)

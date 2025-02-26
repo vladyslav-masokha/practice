@@ -8,7 +8,7 @@ import { handleEditClick, handleChange } from './hooks/userProfileLogic.ts';
 import { handleSaveClick } from './hooks/handleSaveClick.ts';
 import { EditForm } from "./components/EditForm.tsx";
 import Avatar from 'react-avatar';
-import {ErrorPage} from "../errorPage/ErrorPage.tsx";
+import { HelpMessage } from "../../components/HelpMessage/HelpMessage.tsx";
 
 const UserProfilePage = () => {
 	useTitleLogic({ namePage: 'Профіль', id: null });
@@ -82,7 +82,7 @@ const UserProfilePage = () => {
 							)}
 						</div>
 					) : (
-						<ErrorPage />
+						<HelpMessage message={'Ви не авторизовані!'} status='error' />
 					)}
 				</div>
 			</div>
