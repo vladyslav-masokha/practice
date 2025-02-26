@@ -16,7 +16,7 @@ const HomePage = () => {
 	const [filteredProducts, setFilteredProducts] = useState<IFilm[]>([])
 
 	if (loading) return <HelpMessage message={'Завантаження..'} status='loading' />;
-	if (error) return <HelpMessage message={error} status='loading' />;
+	if (error) return <HelpMessage message={error} status='error' />;
 	if (!data) return <div>Дані не знайдено!</div>;
 
 	return (

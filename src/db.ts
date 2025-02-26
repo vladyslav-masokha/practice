@@ -1,12 +1,11 @@
 import sqlite3 from 'sqlite3';
 import { IFilm } from './assets/interfaces/IFilm';
-import { v4 as uuidv4 } from 'uuid';
 
 const db = new sqlite3.Database('films.db', (err) => {
     if (err) {
-        console.error('Ошибка подключения к базе данных SQLite:', err);
+        console.error('Помилка підключення до бази даних SQLite:', err);
     } else {
-        console.log('Успешное подключение к базе данных SQLite');
+        console.log('Успішне підключення до бази даних SQLite');
     }
 });
 
@@ -79,7 +78,7 @@ export const addFilmsFromJson = (films: IFilm[]): Promise<void> => {
             `);
 
             films.forEach(film => {
-                const imdbID = film.imdbID || uuidv4();
+                const imdbID = film.imdbID
                 stmt.run([
                     imdbID,
                     film.title,
