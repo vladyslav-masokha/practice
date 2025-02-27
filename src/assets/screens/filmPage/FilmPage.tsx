@@ -38,28 +38,11 @@ const FilmPage = () => {
 								<p className={styles.year}>Рік випуску: {data.year || "Немає даних"}</p>
 								<p className={styles.country}>Країна: {data.country || "Немає даних"}</p>
 								<p className={styles.duration}>Тривалість: {data.duration || "Немає даних"}</p>
-								<p className={styles.ageRating}>Вікове
-									обмеження: {data.ageRating || "Немає даних"}</p>
-								{data.premiere && data.premiere.length > 0 && (
-									<div>
-										<h3>Premieres:</h3>
-										<ul>
-											{data.premiere.map((p) => (
-												<li key={p.country}>{p.country}: {p.date}</li>
-											))}
-										</ul>
-									</div>
-								)}
-								{data.genre && data.genre.length > 0 && (
-									<div>
-										<h3>Genres:</h3>
-										<ul>
-											{data.genre.map((g) => (
-												<li key={g}>{g}</li>
-											))}
-										</ul>
-									</div>
-								)}
+								<p className={styles.ageRating}>Вікове обмеження: {data.ageRating || "Немає даних"}</p>
+								<p className={styles.ageRating}>
+									Прем'єра: {data.premiere && Object.entries(data.premiere).map(([country, date]) => `${country}: ${date}`).join(', ') || "Немає даних"}
+								</p>
+								{data.genre && data.genre.length > 0 && <p>Жанри: {data.genre.join(', ')}</p>}
 							</div>
 						</div>
 
