@@ -11,6 +11,7 @@ const useAuth = () => {
         const unsubscribe = onAuthStateChanged(auth, (authUser) => {
             if (authUser) {
                 setUser({
+                    password: '',
                     uid: authUser.uid,
                     displayName: authUser.displayName,
                     email: authUser.email,

@@ -1,12 +1,17 @@
 import React from 'react';
 import { TextField, Button, Box, Alert } from '@mui/material';
-import styles from '../UserProfile.module.scss';
-import { EditFormProps } from "../props/EditFormProps.ts";
-import { InputStyles } from "../styles/InputStyles.ts";
+import styles from '../EditProfilePage.module.scss'
+import { EditFormProps } from "../../userProfilePage/props/EditFormProps.ts";
+import { InputStyles } from "../../userProfilePage/styles/InputStyles.ts";
 
 const EditForm: React.FC<EditFormProps> = ({
-    user, handleInputChange, handleSave, errorMessage,
-    successMessage, newEmail, setNewEmail
+    user,
+    handleInputChange,
+    handleSave,
+    errorMessage,
+    successMessage,
+    newEmail,
+    setNewEmail,
 }) => {
     return (
         <Box className={styles.editForm}>
@@ -22,9 +27,9 @@ const EditForm: React.FC<EditFormProps> = ({
             <TextField
                 label="Пошта"
                 name="email"
-                value={newEmail}
+                value={newEmail !== null ? newEmail : ''}
                 onChange={(event) => setNewEmail(event.target.value)}
-                placeholder={newEmail || 'Пошта'}
+                placeholder={newEmail !== null ? newEmail : 'Пошта'}
                 fullWidth
                 margin="normal"
                 type="email"
@@ -32,7 +37,7 @@ const EditForm: React.FC<EditFormProps> = ({
             />
             <Button
                 variant="contained"
-                onClick={() => handleSave(newEmail)}
+                onClick={() => handleSave(newEmail !== null ? newEmail : '')}
                 sx={{ mt: 2 }}
                 className={styles.saveButton}
             >

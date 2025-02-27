@@ -8,9 +8,18 @@ import { AgeFilter } from "../filters/AgeFilter.tsx";
 import { FilterBodyProps } from "../props/FilterBodyProps.ts";
 
 const FilterBody: React.FC<FilterBodyProps> = ({
-    logicOpenFilter, openFilterFunction, setYearFilter,
-    setGenreFilter, setAgeFilter, availableGenres,
-    availableAgeRatings, applyFilters,
+                                                   logicOpenFilter,
+                                                   openFilterFunction,
+                                                   setYearFilter,
+                                                   setGenreFilter,
+                                                   setAgeFilter,
+                                                   applyFilters,
+                                                   availableGenres,
+                                                   availableAgeRatings,
+                                                   // searchQuery,
+                                                   // setSearchQuery,
+                                                   // sortBy,
+                                                   // setSortBy,
 }) => {
     return (
         <div className={logicOpenFilter}>

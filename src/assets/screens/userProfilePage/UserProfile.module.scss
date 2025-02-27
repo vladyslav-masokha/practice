@@ -39,33 +39,4 @@
       }
     }
   }
-
-  .editForm {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    input {
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid var(--global-light);
-      color: var(--global-light);
-      border-radius: 5px;
-      outline: none;
-    }
-
-    button {
-      background-color: var(--global-red);
-      color: var(--global-light);
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background-color: var(--global-dark-red);
-      }
-    }
-  }
 }

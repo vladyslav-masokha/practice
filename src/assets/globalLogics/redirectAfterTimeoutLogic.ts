@@ -1,18 +1,10 @@
-import { User } from 'firebase/auth'
-import { History, LocationState } from 'history'
+import { User } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
-interface redirectAfterTimeoutProps {
-	user: User | null | undefined
-	history: History<LocationState>
-}
-
-const redirectAfterTimeoutLogic = ({
-	user,
-	history,
-}: redirectAfterTimeoutProps): void => {
+const redirectAfterTimeoutLogic = ({ user, navigate }: { user: User | null | undefined, navigate: ReturnType<typeof useNavigate> }) => {
 	setTimeout(() => {
-		if (user) history.push('/')
-	}, 1000)
-}
+		if (user) navigate('/');
+	}, 1000);
+};
 
-export { redirectAfterTimeoutLogic }
+export { redirectAfterTimeoutLogic };

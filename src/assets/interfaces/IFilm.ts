@@ -11,6 +11,9 @@ interface IFilm {
 	link: string;
 	premiere: { country: string; date: string }[];
 	genre: string[];
+	actors: string[];
+	directors: string[];
+	rating: number;
 }
 
 export type { IFilm }

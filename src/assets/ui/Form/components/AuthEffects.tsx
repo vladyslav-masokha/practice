@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { redirectAfterTimeoutLogic } from '../../../globalLogics/redirectAfterTimeoutLogic.ts'
 import { User} from 'firebase/auth';
 
@@ -15,7 +15,7 @@ const AuthEffects: React.FC<AuthEffectsProps> = ({
     email, password, user,
     setErrorMessage, setSuccessMessage,
 }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setErrorMessage(null);
@@ -26,9 +26,9 @@ const AuthEffects: React.FC<AuthEffectsProps> = ({
         if (user) {
             setSuccessMessage("Ви успішно увійшли!");
             setErrorMessage(null);
-            redirectAfterTimeoutLogic({ user, history });
+            redirectAfterTimeoutLogic({ user, navigate });
         }
-    }, [user, history, setSuccessMessage]);
+    }, [user, navigate, setSuccessMessage]);
 
     return null;
 };
