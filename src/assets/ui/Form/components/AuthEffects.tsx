@@ -1,36 +1,30 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { redirectAfterTimeoutLogic } from '../../../globalLogics/redirectAfterTimeoutLogic.ts'
-import { User} from 'firebase/auth';
+import { User } from 'firebase/auth';
 
 interface AuthEffectsProps {
     email: string;
     password: string;
     user: User | null | undefined;
-    setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>;
-    setSuccessMessage: React.Dispatch<React.SetStateAction<string | null>>;
+    setErrorMessage: (message: string | null) => void;
+    setSuccessMessage: (message: string | null) => void;
 }
 
-const AuthEffects: React.FC<AuthEffectsProps> = ({
-    email, password, user,
-    setErrorMessage, setSuccessMessage,
-}) => {
+const AuthEffects: React.FC<AuthEffectsProps> = ({ user, setErrorMessage, setSuccessMessage }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setErrorMessage(null);
-        setSuccessMessage(null);
-    }, [email, password, setErrorMessage, setSuccessMessage]);
-
-    useEffect(() => {
-        if (user) {
-            setSuccessMessage("Ви успішно увійшли!");
+        if (user && user.emailVerified) {
+            setSuccessMessage('Реєстрація успішна!');
             setErrorMessage(null);
-            redirectAfterTimeoutLogic({ user, navigate });
+            navigate('/');
+        } else if (user && !user.emailVerified) {
+            setSuccessMessage('Перевірте свою пошту для підтвердження.');
+            setErrorMessage(null);
         }
-    }, [user, navigate, setSuccessMessage]);
+    }, [user, navigate, setErrorMessage, setSuccessMessage]);
 
     return null;
 };
 
-export { AuthEffects }
+export { AuthEffects };

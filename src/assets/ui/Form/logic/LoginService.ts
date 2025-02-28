@@ -1,5 +1,6 @@
 import { AuthError, getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { LoginErrorMessages } from '../errorMessages/LoginErrorMessage'
+import { useNavigate } from "react-router-dom";
 
 type SetState<T> = (state: T) => void
 
@@ -13,6 +14,7 @@ const handleLogin = (
 ): Promise<void> => {
 	return new Promise<void>((resolve, reject) => { // Create a new Promise
 		const auth = getAuth();
+		const navigate = useNavigate()
 
 		setErrorMessage(null);
 
@@ -22,6 +24,7 @@ const handleLogin = (
 				setEmail('');
 				setPassword('');
 				resolve();
+				navigate('/')
 			})
 			.catch((error: AuthError) => {
 				const { code, message } = error;

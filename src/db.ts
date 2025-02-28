@@ -19,7 +19,10 @@ export const createFilmsTable = (): void => {
             genre TEXT,
             img TEXT,
             description TEXT,
-            link TEXT
+            link TEXT,
+            actors TEXT,
+            directors TEXT,
+            rating REAL
         )
     `;
     db.run(request, (err) => {
@@ -70,8 +73,8 @@ export const addFilmsFromJson = (films: IFilm[]): Promise<void> => {
         db.serialize(() => {
             const stmt = db.prepare(`
                 INSERT OR IGNORE INTO films 
-                (imdbID, title, year, country, duration, ageRating, premiere, genre, description, img, link)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (imdbID, title, year, country, duration, ageRating, premiere, genre, description, img, link, actors, directors, rating)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             `);
 
             films.forEach(film => {
@@ -87,7 +90,10 @@ export const addFilmsFromJson = (films: IFilm[]): Promise<void> => {
                     JSON.stringify(film.genre),
                     film.description,
                     film.img,
-                    film.link
+                    film.link,
+                    film.actors,
+                    JSON.stringify(film.directors),
+                    film.rating
                 ]);
             });
 

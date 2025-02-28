@@ -3,10 +3,21 @@ import {
 	createUserWithEmailAndPassword,
 	getAuth,
 	updateProfile,
-} from 'firebase/auth'
-import { RegisterErrorMessages } from '../errorMessages/RegisterErrorMessages'
+	sendEmailVerification,
+	User,
+} from 'firebase/auth';
+import { RegisterErrorMessages } from '../errorMessages/RegisterErrorMessages';
 
-type SetState<T> = (state: T) => void
+type SetState<T> = (state: T) => void;
+
+const sendVerificationEmail = async (user: User, setErrorMessage: SetState<string | null>) => {
+	try {
+		await sendEmailVerification(user);
+	} catch (error) {
+		const { code, message } = error as AuthError;
+		RegisterErrorMessages(setErrorMessage, code, message);
+	}
+};
 
 const handleRegister = (
 	userName: string,
@@ -18,27 +29,30 @@ const handleRegister = (
 	setSuccessMessage: SetState<string | null>,
 	setErrorMessage: SetState<string | null>
 ) => {
-	const auth = getAuth()
+	const auth = getAuth();
 	if (!userName.trim()) {
-		setErrorMessage("Невірне ім'я користувача!")
-		return
+		setErrorMessage("Невірне ім'я користувача!");
+		return;
 	}
 
 	createUserWithEmailAndPassword(auth, email, password)
-		.then(async userCredential => {
-			const user = userCredential.user
-			await updateProfile(user, { displayName: userName })
-			setSuccessMessage('Реєстрація успішна!')
+		.then(async (userCredential) => {
+			const user = userCredential.user;
+			await updateProfile(user, { displayName: userName });
 
-			setUserName('')
-			setEmail('')
-			setPassword('')
-			setErrorMessage('')
+			await sendVerificationEmail(user, setErrorMessage); // Відправити лист
+
+			setSuccessMessage('Реєстрація майже завершена. Перевірте свою пошту для підтвердження.');
+			setErrorMessage('');
+
+			setUserName('');
+			setEmail('');
+			setPassword('');
 		})
 		.catch((error: AuthError) => {
-			const { code, message } = error
-			RegisterErrorMessages(setErrorMessage, code, message)
-		})
-}
+			const { code, message } = error;
+			RegisterErrorMessages(setErrorMessage, code, message);
+		});
+};
 
-export { handleRegister }
+export { handleRegister, sendVerificationEmail };

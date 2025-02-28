@@ -12,8 +12,6 @@ const Filter: React.FC<FilterProps> = ({ data, setFilteredProducts }) => {
 	const [yearFilter, setYearFilter] = useState<[number, number] | null>(null);
 	const [genreFilter, setGenreFilter] = useState<string | null>(null);
 	const [ageFilter, setAgeFilter] = useState<string | null>(null);
-	// const [searchQuery, setSearchQuery] = useState<string>(''); // Додано стан для пошуку
-	// const [sortBy, setSortBy] = useState<'popularity' | 'releaseDate' | 'rating' | null>(null); // Додано стан для сортування
 
 	const applyFilters = useFilterLogic(
 		data,
@@ -21,8 +19,6 @@ const Filter: React.FC<FilterProps> = ({ data, setFilteredProducts }) => {
 		yearFilter,
 		genreFilter,
 		ageFilter,
-		// searchQuery, // Передаємо пошуковий запит
-		// sortBy // Передаємо критерій сортування
 	);
 
 	const openFilterFunction = () => setOpenFilter(!openFilter);
@@ -47,10 +43,6 @@ const Filter: React.FC<FilterProps> = ({ data, setFilteredProducts }) => {
 					applyFilters={applyFilters}
 					availableGenres={availableGenres}
 					availableAgeRatings={availableAgeRatings}
-					// searchQuery={searchQuery} // Передаємо пошуковий запит в FilterBody
-					// setSearchQuery={setSearchQuery} // Передаємо функцію для зміни пошукового запиту
-					// sortBy={sortBy} // Передаємо критерій сортування
-					// setSortBy={setSortBy} // Передаємо функцію для зміни критерію сортування
 				/>
 			</div>
 		</div>
